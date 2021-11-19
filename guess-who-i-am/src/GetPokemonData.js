@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AnswerTheName from './AnswerTheName';
 
-function GetPokemonData () {
-   
+function GetPokemonData (props) {
+    const {operationBarShow, setOperationBarShow} = props;
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState ('');
@@ -27,20 +27,13 @@ function GetPokemonData () {
           })
     }, [])
 
-    // const userInputTextSubumitted = (boolean) =>{
-    //     setPokemonFog(boolean);
-    // }
-
-    
-
     return (
-        <div>
-            <img className= {pokemonFog ? "showPokemon wildPokemonImg" : "hidePokemon wildPokemonImg" } src={randomPokemon} alt={randonPokemonAlt}></img>
-
-            <AnswerTheName correctName={randomPokemonName} pokemonFog={pokemonFog} setPokemonFog = {setPokemonFog} />
-
-
-        </div>
+        <>
+            <div>
+                <img className= {pokemonFog ? "showPokemon wildPokemonImg" : "hidePokemon wildPokemonImg" } src={randomPokemon} alt={randonPokemonAlt}></img>
+            </div>
+            <AnswerTheName correctName={randomPokemonName} pokemonFog={pokemonFog} setPokemonFog={setPokemonFog} operationBarShow={operationBarShow} setOperationBarShow={setOperationBarShow}/>
+        </>
     )
 }
 
