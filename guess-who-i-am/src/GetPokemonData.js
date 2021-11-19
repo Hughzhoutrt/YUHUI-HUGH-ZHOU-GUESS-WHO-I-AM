@@ -1,11 +1,14 @@
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import AnswerTheName from './AnswerTheName';
 
 function GetPokemonData () {
    
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
+    const [randonPokemonAlt, setRandomPokemonAlt] = useState ('');
+    const [pokemonFog, setPokemonFog] = useState(false);
 
     useEffect (() => {
         const pokemonTotalNumber = 898; //Pokemon total amount
@@ -18,21 +21,27 @@ function GetPokemonData () {
             responseType: 'json'
           })
           .then(response => {
-              console.log(response.data);
             setRandomPokemon(response.data.sprites.front_default);
-            setRandomPokemonName(`The picture of ${response.data.name}`)
+            setRandomPokemonName(response.data.name);
+            setRandomPokemonAlt(`The picture of ${response.data.name}`)
           })
     }, [])
 
-
-    return (
-        <div>
-            <img className="wildPokemonImg" src={randomPokemon} alt={randomPokemonName}></img>
-        </div>
-    )
+    // const userInputTextSubumitted = (boolean) =>{
+    //     setPokemonFog(boolean);
+    // }
 
     
 
+    return (
+        <div>
+            <img className= {pokemonFog ? "showPokemon wildPokemonImg" : "hidePokemon wildPokemonImg" } src={randomPokemon} alt={randonPokemonAlt}></img>
+
+            <AnswerTheName correctName={randomPokemonName} pokemonFog={pokemonFog} setPokemonFog = {setPokemonFog} />
+
+
+        </div>
+    )
 }
 
 export default GetPokemonData;
