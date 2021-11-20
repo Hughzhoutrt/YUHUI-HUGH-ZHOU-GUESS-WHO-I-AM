@@ -26,12 +26,13 @@ function App() {
           setOperationBarShow={setOperationBarShow}
           pokemonName={pokemonName}
           setPokemonName={setPokemonName}
-          setPokemonImg={setPokemonImg} />
+          setPokemonImg={setPokemonImg}/>
           : null}
       {<Pokedex pokemonName={pokemonName}
         pokemonImg={pokemonImg}
         pokedexShow={pokedexShow}
-        pokemonAppear={pokemonAppear} />}
+        pokemonAppear={pokemonAppear}
+         />}
       {operationBarShow && pokemonAppear ?
         <div>
           <OperationBar pokedexShow={pokedexShow}

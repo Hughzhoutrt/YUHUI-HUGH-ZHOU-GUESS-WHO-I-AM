@@ -9,6 +9,7 @@ function GetPokemonData(props) {
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState('');
     const [pokemonFog, setPokemonFog] = useState(false);
+    const [pokemonPlay, setPokemonPlay] = useState(false);
 
     useEffect(() => {
         const pokemonTotalNumber = 898; //Pokemon total amount
@@ -30,16 +31,27 @@ function GetPokemonData(props) {
             })
     }, [])
 
+    useEffect(() => {
+
+    })
+
+    const reAnimation = () =>{
+        setPokemonFog(!pokemonFog);
+        setPokemonPlay(!pokemonPlay);
+    }
+
     return (
         <>
-            <div className="wildPokemonImgContainer">
-                <img className={pokemonFog ? "showPokemon wildPokemonImg" : "hidePokemon wildPokemonImg"} src={randomPokemon} alt={randonPokemonAlt}></img>
+            <div onClick={reAnimation} className="wildPokemonImgContainer">
+                <img className={pokemonFog ? "showPokemon wildPokemonImg" 
+                                :pokemonPlay ? "playPokemon wildPokemonImg"
+                                : "hidePokemon wildPokemonImg"} src={randomPokemon} alt={randonPokemonAlt}></img>
             </div>
             <AnswerTheName correctName={randomPokemonName}
                 pokemonFog={pokemonFog}
                 setPokemonFog={setPokemonFog}
                 operationBarShow={operationBarShow}
-                setOperationBarShow={setOperationBarShow} />
+                setOperationBarShow={setOperationBarShow}/>
         </>
     )
 }
