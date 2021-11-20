@@ -44,7 +44,7 @@ function App() {
         </div>
         : null}
       <div>
-        {!pokemonAppear ? <button className="openingButton" onClick={letPokemonAppear}>Ready to meet a wild Pokémon?</button> : null}
+        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={letPokemonAppear}>Ready to meet a wild Pokémon?</button> : null}
       </div>
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view"/>
     </main>

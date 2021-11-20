@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import pokemonBall from './imgs/pokemonBall.png'
+import pokedexImg from './imgs/pokedex.png'
 
 function Pokedex(props) {
     const { pokemonName, pokemonImg, pokedexShow, pokemonAppear } = props;
@@ -35,21 +37,28 @@ function Pokedex(props) {
     const pokemonNameInPokedex = pokemonName.slice(0, 1).toUpperCase() + pokemonName.slice(1)
 
     return (
-        <div>
+        <>
             {pokedexShow && pokemonAppear ?
-                <>
-                    <h2>{pokemonNameInPokedex}</h2>
-                    <img src={pokemonImg} />
-                    <div>
-                        <p>Genus: {pokemonGenera}</p>
-                        <p>Habitat: {pokemonHabitat}</p>
+                <div className="pokedexContainer pokemonStyleBorder">
+                    <div className="pokedexSubContainer">
+                        <img className="pokedexDecoration" src={pokedexImg} aria-hidden="true" />   
+                        <img className="pokemonBallDecoration pokemonBallDecoration1" src={pokemonBall} aria-hidden="true" />
+                        <img className="pokemonBallDecoration pokemonBallDecoration2" src={pokemonBall} aria-hidden="true" />
+                        <img className="pokemonBallDecoration pokemonBallDecoration3" src={pokemonBall} aria-hidden="true" />
+                        <img className="pokemonBallDecoration pokemonBallDecoration4" src={pokemonBall} aria-hidden="true" />
+                        <div className="podexTittle">
+                            <img src={pokemonImg} />
+                            <h2>{pokemonNameInPokedex}</h2>
+                        </div>
+                        <div className="podexText">
+                            <p>Genus: {pokemonGenera}</p>
+                            <p>Habitat: {pokemonHabitat}</p>
+                            <p>{pokemonText}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>{pokemonText}</p>
-                    </div>
-                </>
-                : null}
-        </div>
+                </div>
+            : null}
+        </>
     )
 }
 

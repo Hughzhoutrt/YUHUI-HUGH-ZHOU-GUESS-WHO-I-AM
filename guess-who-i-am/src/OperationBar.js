@@ -14,7 +14,7 @@ function OperationBar (props) {
     }
 
     return (
-        <div className="operatingBar">
+        <div className="operatingBar pokemonStyleBorder">
              <button onClick={OpenningPokedexInterface}>Pokédex</button>
              <button>Catch</button>
              <button>Pokémon</button>
