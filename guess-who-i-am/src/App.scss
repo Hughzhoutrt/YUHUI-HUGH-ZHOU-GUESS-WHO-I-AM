@@ -1,3 +1,7 @@
+html {
+  font-size: 125%;
+}
+
 .App {
   background-image: url(./imgs/backgroundWilderness.png);
   background-position: center;
@@ -10,6 +14,8 @@
   max-height: 1028px;
   position: relative;
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 
@@ -34,6 +40,19 @@
   92% {filter: brightness(92%); transform: rotate(-6deg);}
   96% {filter: brightness(96%); transform: rotate(6deg);}
  100% {filter: brightness(100%); transform: rotate(-3deg);}
+}
+
+.openingButton {
+  position: absolute;
+  top: 50vh;
+  left: 35vw;
+  font-size: 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 2px solid #5ED0FF;
+  box-shadow: 0 0 0 2px #4192b3;
+  width: 30vw;
 }
 
 .wildPokemonImgContainer {
