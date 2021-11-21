@@ -1,0 +1,63 @@
+//Header START
+.header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 800px;
+    position: absolute;
+    top: 0;
+    left: calc(50vw - 400px);
+    
+    .headerSubContainer {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 2px solid white;
+        background-color: rgba(94, 208, 255,0.6);
+        display: flex;
+        justify-content: center;
+        padding-top: 2vh;
+
+        div {
+           display:flex;
+           flex-direction: column;
+        }
+    }
+
+}
+
+.headerSubContainer {
+    img {
+        width: 600px;
+    }
+
+    audio {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-top: 2vh;
+        width: 100px;
+        align-self: center;
+    }
+}
+
+.links {
+    position: absolute;
+    top: 0;
+    right: 2vw;
+
+    a {
+        &:link,
+        &:visited,
+        &:active {
+            text-decoration: none;
+        }
+
+        i{
+            font-size: 2rem;
+            margin: 10px;
+            color:black;
+        }
+    }
+}

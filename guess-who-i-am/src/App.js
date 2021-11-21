@@ -2,6 +2,7 @@ import './App.scss';
 import { useEffect, useState } from 'react';
 import GetPokemonData from './GetPokemonData';
 import OperationBar from './OperationBar';
+import Header from './Header';
 import Pokedex from './Pokedex';
 import HeroBackImg from './imgs/heroBack.png';
 
@@ -22,17 +23,18 @@ function App() {
 
   return (
     <main className="App">
-        {pokemonAppear ? <GetPokemonData operationBarShow={operationBarShow}
-          setOperationBarShow={setOperationBarShow}
-          pokemonName={pokemonName}
-          setPokemonName={setPokemonName}
-          setPokemonImg={setPokemonImg}/>
-          : null}
+      <Header />
+      {pokemonAppear ? <GetPokemonData operationBarShow={operationBarShow}
+        setOperationBarShow={setOperationBarShow}
+        pokemonName={pokemonName}
+        setPokemonName={setPokemonName}
+        setPokemonImg={setPokemonImg} />
+        : null}
       {<Pokedex pokemonName={pokemonName}
         pokemonImg={pokemonImg}
         pokedexShow={pokedexShow}
         pokemonAppear={pokemonAppear}
-         />}
+      />}
       {operationBarShow && pokemonAppear ?
         <div>
           <OperationBar pokedexShow={pokedexShow}
@@ -46,7 +48,7 @@ function App() {
       <div>
         {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={letPokemonAppear}>Ready to meet a wild Pokémon?</button> : null}
       </div>
-      <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view"/>
+      <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
     </main>
   );
 }

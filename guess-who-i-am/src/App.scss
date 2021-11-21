@@ -1,7 +1,12 @@
-html {
-  font-size: 125%;
-}
+@import "normalize";
+@import "commonSettings";
+@import "answerTheName";
+@import "getPokemonData";
+@import "operationBar";
+@import "pokedex";
+@import "header";
 
+//App START
 .App {
   background-image: url(./imgs/backgroundWilderness.png);
   background-position: center;
@@ -18,59 +23,6 @@ html {
   overflow-y: hidden;
 }
 
-
-//Pokemon Showing up animation
-.hidePokemon {
-  filter: brightness(0);
-}
-
-.hideBlock {
-  display:none;
-}
-
-.showPokemon {
-  cursor: pointer;
-  filter: brightness(100%);
-  animation-duration: 2s;
-  animation-name: showPokemon;
-}
-
-@keyframes showPokemon {
-  0% {filter: brightness(0);}
-  20% {filter: brightness(20%); transform:translate(0, -10%)}
-  25% {filter: brightness(25%); transform:translate(0, 0)}
-  80% {filter: brightness(80%); transform: rotate(0);}
-  84% {filter: brightness(84%); transform: rotate(-3deg);}
-  88% {filter: brightness(88%); transform: rotate(6deg);}
-  92% {filter: brightness(92%); transform: rotate(-6deg);}
-  96% {filter: brightness(96%); transform: rotate(6deg);}
- 100% {filter: brightness(100%); transform: rotate(-3deg);}
-}
-
-.playPokemon {
-  cursor: pointer;
-  animation: playPokemon 1.5s infinite;
-}
-
-@keyframes playPokemon {
-  0% {transform:translate(0, 0)}
-  12% {transform:translate(-5%, -5%)}
-  25% {transform:translate(-10%, 0%)}
-  37% {transform:translate(-5%, -5%)}
-  50% {transform:translate(0, 0)}
-  62% {transform:translate(5%, -5%)}
-  75% {transform:translate(10%, 0)}
-  87% {transform:translate(5%, -5%)}
-  100% {transform:translate(0, 0)}
-}
-
-.pokemonStyleBorder {
-  border-radius: 10px;
-  border: 2px solid #5ED0FF;
-  box-shadow: 0 0 0 2px #4192b3;
-  background-color: white;
-}
-
 .openingButton {
   cursor: pointer;
   position: absolute;
@@ -83,164 +35,10 @@ html {
   z-index: 1;
 }
 
-.wildPokemonImgContainer {
-  position:absolute;
-  top:30vh;
-  right: 20vw;
-  .wildPokemonImg {
-    height: 40vh;
-  }
-}
-
-
 .heroBack {
   position: absolute;
   left: 5vw;
   bottom: 0;
   z-index: 0;
 }
-
-form {
-  position: absolute;
-  bottom: 15vh;
-  left: 37vw;
-  width: 26vw;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.5rem;
-  padding: 30px 20px;
-  z-index: 1;
-
-  button {
-    margin: 2vh 0 0 1vw;
-    font-family: 'Press Start 2P', cursive;
-    cursor: pointer;
-    border:none;
-    background-color: white;
-    font-size: 1rem;
-
-  }
-
-  input {
-    font-size: 1.2rem;
-    font-family: 'Play', sans-serif;
-    border-radius: 10px;
-    text-align: center;
-  }
-}
-
-.pokemonNamePrompt {
-  cursor: pointer;
-  position: absolute;
-  width: 28vw;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
-  text-align: start;
-  font-weight: bolder;
-  padding: 25px 20px;
-  bottom: 25vh;
-  left: 35vw;
-  z-index: 1;
-
-  p {
-    margin: 0;
-    
-    span{
-      color:#4192b3;
-    }
-  }
-}
-
-.operatingBar {
-  position:absolute;
-  width: 30vw;
-  bottom:1vh;
-  left:35vw;
-  z-index: 1;
-  display:grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-
-    button{
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.2rem;
-      font-weight: bolder;
-      border:none;
-      padding: 30px 0;
-      background-color: white;
-      cursor: pointer;
-    }
-
-}
-
-.pokedexContainer {
-  width: 600px;
-  position:absolute;
-  bottom: 25vh;
-  left: calc(50vw - 300px);
-  z-index: 2;
-
-  .pokedexSubContainer {
-    position: relative;
-    font-family: 'Press Start 2P', cursive;
-
-    .pokedexDecoration {
-      position:absolute;
-      width: 80px;
-      top: 20px;
-      right: 40px;
-    }
-  
-    .pokemonBallDecoration {
-      width: 30px;
-      position:absolute;
-      border-radius: 10px;
-    }
-
-    .pokemonBallDecoration1 {
-      top:0;
-      left:0;
-    }
-
-    .pokemonBallDecoration2 {
-      top:0;
-      right:0;
-    }
-
-    .pokemonBallDecoration3 {
-      bottom:0;
-      left:0;
-    }
-
-    .pokemonBallDecoration4 {
-      bottom:0;
-      right:0;
-    }
-
-    .podexTittle {
-      display:flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-
-    p {
-      font-size: 1rem;
-      text-align: start;
-      margin: 0;
-      padding: 10px 50px;
-    }
-  }
-}
-
-.podexTittle {
-    img {
-    width: 150px;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-}
-
-.podexText {
-  padding-bottom: 30px;
-}
+//App END

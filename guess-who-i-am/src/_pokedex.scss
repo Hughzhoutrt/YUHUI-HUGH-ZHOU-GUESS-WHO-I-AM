@@ -1,0 +1,75 @@
+//Pokedex START
+.pokedexContainer {
+    width: 600px;
+    position:absolute;
+    bottom: 25vh;
+    left: calc(50vw - 300px);
+    z-index: 2;
+  
+    .pokedexSubContainer {
+      position: relative;
+      font-family: 'Press Start 2P', cursive;
+  
+      .pokedexDecoration {
+        position:absolute;
+        width: 80px;
+        top: 20px;
+        right: 40px;
+      }
+    
+      .pokemonBallDecoration {
+        width: 30px;
+        position:absolute;
+        border-radius: 10px;
+      }
+  
+      .pokemonBallDecoration1 {
+        top:0;
+        left:0;
+      }
+  
+      .pokemonBallDecoration2 {
+        top:0;
+        right:0;
+      }
+  
+      .pokemonBallDecoration3 {
+        bottom:0;
+        left:0;
+      }
+  
+      .pokemonBallDecoration4 {
+        bottom:0;
+        right:0;
+      }
+  
+      .podexTittle {
+        display:flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+  
+      p {
+        font-size: 1rem;
+        text-align: start;
+        margin: 0;
+        padding: 10px 50px;
+      }
+    }
+  }
+  
+  .podexTittle {
+      img {
+      width: 150px;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+      margin: 1vh 3vw;
+    }
+  }
+  
+  .podexText {
+    padding-bottom: 30px;
+  }
+  //Pokedex END

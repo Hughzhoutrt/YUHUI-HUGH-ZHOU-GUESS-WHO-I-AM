@@ -1,0 +1,23 @@
+//OperationBar START
+.operatingBar {
+    position:absolute;
+    width: 30vw;
+    bottom:1vh;
+    left:35vw;
+    z-index: 1;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  
+      button{
+        font-family: 'Press Start 2P', cursive;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        border:none;
+        padding: 30px 0;
+        background-color: white;
+        cursor: pointer;
+      }
+  
+  }
+  //OperationBar END
