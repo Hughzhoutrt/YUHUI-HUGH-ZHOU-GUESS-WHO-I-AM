@@ -34,6 +34,10 @@ function GetPokemonData(props) {
     const reAnimation = () =>{
         setPokemonFog(!pokemonFog);
         setPokemonPlay(pokemonPlay + 1);
+
+        if (pokemonPlay === 10) {
+            setPokemonPlay(2);
+        }
     }
 
     return (
