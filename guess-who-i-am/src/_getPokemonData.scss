@@ -7,8 +7,7 @@
   .showPokemon {
     cursor: pointer;
     filter: brightness(100%);
-    animation-duration: 2s;
-    animation-name: showPokemon;
+    animation: showPokemon 2s;
   }
   
   @keyframes showPokemon {

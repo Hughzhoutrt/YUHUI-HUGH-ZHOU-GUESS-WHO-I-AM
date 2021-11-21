@@ -1,12 +1,13 @@
 import './App.scss';
 
 function OperationBar (props) {
-    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow} = props;
+    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay} = props;
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
         setOperationBarShow(false);
         setPokedexShow(false);
+        setHeaderDisplay(true);
     }
 
     const OpenningPokedexInterface = () => {

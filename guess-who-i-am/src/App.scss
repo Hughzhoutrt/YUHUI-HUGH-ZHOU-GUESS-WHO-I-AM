@@ -5,6 +5,7 @@
 @import "operationBar";
 @import "pokedex";
 @import "header";
+@import "footer";
 
 //App START
 .App {
@@ -33,6 +34,14 @@
   padding: 20px 30px;
   width: 30vw;
   z-index: 1;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    color:#356abc;
+  }
 }
 
 .heroBack {

@@ -17,6 +17,21 @@
         padding: 30px 0;
         background-color: white;
         cursor: pointer;
+
+        &:hover::before {
+          content: "";
+          background-image: url(./imgs/trianglePointer.png);
+          background-repeat: no-repeat;
+          display: inline-block;
+          background-size: 100%;
+          width:20px;
+          height:20px;
+          margin-right: 5px;
+        }
+  
+        &:active {
+          color:#4192b3;
+        }
       }
   
   }

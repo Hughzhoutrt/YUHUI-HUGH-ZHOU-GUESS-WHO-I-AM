@@ -16,6 +16,23 @@ form {
       border:none;
       background-color: white;
       font-size: 1rem;
+
+      &:hover::before {
+        content: "";
+        background-image: url(./imgs/trianglePointer.png);
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-size: 100%;
+        width:20px;
+        height:20px;
+        margin-right: 5px;
+      }
+
+      &:active {
+        color:#4192b3;
+      }
+
+
   
     }
   
@@ -39,6 +56,10 @@ form {
     bottom: 25vh;
     left: 35vw;
     z-index: 1;
+
+    &:active {
+      transform: scale(0.8);
+    }
   
     p {
       margin: 0;

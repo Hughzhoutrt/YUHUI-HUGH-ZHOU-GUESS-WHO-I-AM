@@ -17,12 +17,16 @@
         border: 2px solid white;
         background-color: rgba(94, 208, 255,0.6);
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         padding-top: 2vh;
 
-        div {
-           display:flex;
-           flex-direction: column;
+        .headerSubSubContainer {
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 600px;
+            padding: 0 20px;
         }
     }
 
@@ -38,26 +42,17 @@
         border-top-right-radius: 10px;
         margin-top: 2vh;
         width: 100px;
-        align-self: center;
     }
 }
 
-.links {
-    position: absolute;
-    top: 0;
-    right: 2vw;
-
-    a {
-        &:link,
-        &:visited,
-        &:active {
-            text-decoration: none;
-        }
-
-        i{
-            font-size: 2rem;
-            margin: 10px;
-            color:black;
-        }
-    }
+.headerDisappear {
+    top : -167.5px;
+    animation: headerDisappear 1s ease-out;
 }
+
+@keyframes headerDisappear {
+    0% {top : 0}
+    30% {top : 20px}
+    100% {top : -167.5px}
+}
+//Header END

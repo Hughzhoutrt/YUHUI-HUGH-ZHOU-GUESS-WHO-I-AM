@@ -5,6 +5,9 @@ import OperationBar from './OperationBar';
 import Header from './Header';
 import Pokedex from './Pokedex';
 import HeroBackImg from './imgs/heroBack.png';
+import Footer from './Footer';
+import useSound from 'use-sound';
+import BattleMusic from './audios/battleMusic.mp3';
 
 
 function App() {
@@ -16,14 +19,21 @@ function App() {
   const [operationBarShow, setOperationBarShow] = useState(false); //Get state from "./GetPokemonData" and "./OperationBar" to "App", once users submitted the input then operation bar shown
   const [pokedexShow, setPokedexShow] = useState(false); //Get state from "./OperationBar" to "./Pokedex", for opening or closing Pokedex inferface
 
+  const [headerDisplay, setHeaderDisplay] = useState(true);
+
   const letPokemonAppear = () => {
     setPokemonAppear(!pokemonAppear);
+    setHeaderDisplay(!headerDisplay);
   }
+
+  
+    const [playMusic] = useSound(BattleMusic);
+  
 
 
   return (
     <main className="App">
-      <Header />
+      <Header headerDisplay={headerDisplay}/>
       {pokemonAppear ? <GetPokemonData operationBarShow={operationBarShow}
         setOperationBarShow={setOperationBarShow}
         pokemonName={pokemonName}
@@ -42,15 +52,19 @@ function App() {
             pokemonAppear={pokemonAppear}
             setPokemonAppear={setPokemonAppear}
             operationBarShow={operationBarShow}
-            setOperationBarShow={setOperationBarShow} />
+            setOperationBarShow={setOperationBarShow} 
+            setHeaderDisplay={setHeaderDisplay}/>
         </div>
         : null}
       <div>
-        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={letPokemonAppear}>Ready to meet a wild Pokémon?</button> : null}
+        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={()=>{playMusic();letPokemonAppear() }}>Ready to meet a wild Pokémon?</button> : null}
       </div>
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
+      <Footer />
     </main>
   );
 }
 
 export default App;
+
+// letPokemonAppear()

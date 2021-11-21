@@ -1,0 +1,42 @@
+.footer {
+    position:absolute;
+    bottom:0;
+    right:1vw;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    font-family: 'Play', sans-serif;
+
+    .links {
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+            text-decoration: none;
+            margin:0 10px;
+            color: #356abc;
+
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+
+        p {
+            margin:0 10px 0 0 ;
+        }
+    }
+
+    p {
+        margin: 0;
+
+        a{
+            text-decoration: none; 
+            font-weight: bolder;
+            color: #c86048;
+
+            &:hover {
+                color: #f87058;
+            }
+        }   
+    }
+}
