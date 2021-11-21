@@ -8,6 +8,8 @@ import HeroBackImg from './imgs/heroBack.png';
 import Footer from './Footer';
 import useSound from 'use-sound';
 import BattleMusic from './audios/battleMusic.mp3';
+import HoverSound from './audios/buttonSoundHover.mp3';
+import ClickSound from './audios/buttonSoundClick.mp3';
 
 
 function App() {
@@ -29,6 +31,10 @@ function App() {
   }
 
   const [playMusic,  {stop}] = useSound(BattleMusic);
+
+  const [playHoverSound] = useSound(HoverSound);
+
+  const [playClickSound] = useSound(ClickSound);
 
   const stopBattleMusic =() => {
 
@@ -64,10 +70,10 @@ function App() {
         </div>
         : null}
       <div>
-        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={()=>{playMusic();letPokemonAppear() }}>Ready to meet a wild Pokémon?</button> : null}
+        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); playMusic();letPokemonAppear();}}>Ready to meet a wild Pokémon?</button> : null}
       </div>
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
-      <button className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" }onClick={()=>{stop(); stopBattleMusic()}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i></button>
+      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" }onClick={()=>{playClickSound(); stop(); stopBattleMusic();}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i></button>
       <Footer />
     </main>
   );

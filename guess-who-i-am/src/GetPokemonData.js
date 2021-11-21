@@ -2,6 +2,9 @@ import './App.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AnswerTheName from './AnswerTheName';
+import useSound from 'use-sound';
+import HoverPokemonSound from './audios/hoverPokemonSound.mp3';
+import ClickPokemonSound from './audios/clickPokemonSound.mp3';
 
 function GetPokemonData(props) {
     const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg } = props;
@@ -40,9 +43,12 @@ function GetPokemonData(props) {
         }
     }
 
+    const [playHoverPokemonSound] = useSound(HoverPokemonSound);
+    const [playClickPokemonSound] = useSound(ClickPokemonSound);
+
     return (
         <>
-            <div onClick={reAnimation} className="wildPokemonImgContainer">
+            <div onMouseEnter={playHoverPokemonSound} onClick={()=> {playClickPokemonSound();reAnimation();}} className="wildPokemonImgContainer">
                 <img className={pokemonFog ? "showPokemon wildPokemonImg" 
                                 :pokemonPlay > 1 ? "playPokemon wildPokemonImg"
                                 : "hidePokemon wildPokemonImg"} src={randomPokemon} alt={randonPokemonAlt}></img>

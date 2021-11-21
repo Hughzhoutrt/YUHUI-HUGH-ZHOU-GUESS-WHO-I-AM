@@ -1,5 +1,8 @@
 import './App.scss';
 import { useState } from 'react';
+import useSound from 'use-sound';
+import HoverSound from './audios/buttonSoundHover.mp3';
+import ClickSound from './audios/buttonSoundClick.mp3';
 
 function AnswerTheName(props) {
     console.log(props.correctName);
@@ -29,14 +32,17 @@ function AnswerTheName(props) {
 
     const upperCasePokemonName = correctName.slice(0, 1).toUpperCase() + correctName.slice(1);
 
+    const [playHoverSound] = useSound(HoverSound);
+    const [playClickSound] = useSound(ClickSound);
+
     return (
         <>
             {submittedAlready === false ?
                 <form onSubmit={SubmitUserInputText} className="pokemonStyleBorder">
                     <label htmlFor="pokemonInputTextArea">Guess who I am?</label>
                     <div>
-                        <input type="text" id="pokemonInputTextArea" onChange={GetUserInputText} />
-                        <button onClick={userInputSubmitting}>Submit!</button>
+                        <input onClick={playHoverSound} type="text" id="pokemonInputTextArea" onChange={GetUserInputText} />
+                        <button onMouseEnter={playHoverSound} onClick={()=> {playClickSound(); userInputSubmitting();}}>Submit!</button>
                     </div>
                 </form>
                 : null
