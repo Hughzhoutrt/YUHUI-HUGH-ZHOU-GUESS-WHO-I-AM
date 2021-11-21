@@ -1,5 +1,5 @@
 import './App.scss';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import GetPokemonData from './GetPokemonData';
 import OperationBar from './OperationBar';
 import Header from './Header';
@@ -21,16 +21,22 @@ function App() {
 
   const [headerDisplay, setHeaderDisplay] = useState(true);
 
+  const [stopMusicDisplay, setStopMusicDisplay] = useState(true);
+
   const letPokemonAppear = () => {
     setPokemonAppear(!pokemonAppear);
     setHeaderDisplay(!headerDisplay);
   }
 
-  
-    const [playMusic] = useSound(BattleMusic);
-  
+  const [playMusic,  {stop}] = useSound(BattleMusic);
 
+  const stopBattleMusic =() => {
 
+    if (pokemonAppear) {
+      setStopMusicDisplay(!stopMusicDisplay);
+    }
+  }
+  
   return (
     <main className="App">
       <Header headerDisplay={headerDisplay}/>
@@ -53,13 +59,15 @@ function App() {
             setPokemonAppear={setPokemonAppear}
             operationBarShow={operationBarShow}
             setOperationBarShow={setOperationBarShow} 
-            setHeaderDisplay={setHeaderDisplay}/>
+            setHeaderDisplay={setHeaderDisplay}
+            setStopMusicDisplay={setStopMusicDisplay}/>
         </div>
         : null}
       <div>
         {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onClick={()=>{playMusic();letPokemonAppear() }}>Ready to meet a wild Pokémon?</button> : null}
       </div>
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
+      <button className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" }onClick={()=>{stop(); stopBattleMusic()}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i></button>
       <Footer />
     </main>
   );
