@@ -4,7 +4,7 @@ import HoverSound from './audios/buttonSoundHover.mp3';
 import ClickSound from './audios/buttonSoundClick.mp3';
 
 function OperationBar (props) {
-    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay} = props;
+    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay} = props;
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
@@ -12,6 +12,7 @@ function OperationBar (props) {
         setPokedexShow(false);
         setHeaderDisplay(true);
         setStopMusicDisplay(true);
+        setStopBattleMusicDisplay(true);
     }
 
     const OpenningPokedexInterface = () => {
