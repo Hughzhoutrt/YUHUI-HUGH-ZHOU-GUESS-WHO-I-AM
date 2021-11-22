@@ -5,9 +5,10 @@ import AnswerTheName from './AnswerTheName';
 import useSound from 'use-sound';
 import HoverPokemonSound from './audios/hoverPokemonSound.mp3';
 import ClickPokemonSound from './audios/clickPokemonSound.mp3';
+import PokemonList from './PokemonList';
 
 function GetPokemonData(props) {
-    const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg, catchPokemon } = props;
+    const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg, catchPokemon} = props;
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState('');
@@ -55,11 +56,14 @@ function GetPokemonData(props) {
                                
                                 : "hidePokemon wildPokemonImg"} src={randomPokemon} alt={randonPokemonAlt}></img>
             </section>
+
             <AnswerTheName correctName={randomPokemonName}
                 pokemonFog={pokemonFog}
                 setPokemonFog={setPokemonFog}
                 operationBarShow={operationBarShow}
                 setOperationBarShow={setOperationBarShow}/>
+
+            <PokemonList catchPokemon={catchPokemon}/>
         </>
     )
 }

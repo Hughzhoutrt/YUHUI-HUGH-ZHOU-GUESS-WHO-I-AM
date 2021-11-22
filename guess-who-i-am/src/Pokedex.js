@@ -1,3 +1,4 @@
+import './App.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import pokemonBall from './imgs/pokemonBall.png'
@@ -10,7 +11,6 @@ function Pokedex(props) {
     const [pokemonHabitat, setPokemonHabitat] = useState('');
 
     useEffect(() => {
-        console.log(pokemonName);
         const specificPokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`;
         axios({
             url: specificPokemonUrl,
@@ -19,8 +19,6 @@ function Pokedex(props) {
         })
             .then(response => {
                 if (pokemonAppear) {
-                    console.log(response.data.genera);
-
                     const findingEnglishVersion = texts => {
                         return texts.language.name === "en";
                     }
