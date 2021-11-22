@@ -39,7 +39,7 @@ function Pokedex(props) {
     return (
         <>
             {pokedexShow && pokemonAppear ?
-                <div className="pokedexContainer pokemonStyleBorder">
+                <section className="pokedexContainer pokemonStyleBorder">
                     <div className="pokedexSubContainer">
                         <img className="pokedexDecoration" src={pokedexImg} aria-hidden="true" />   
                         <img className="pokemonBallDecoration pokemonBallDecoration1" src={pokemonBall} aria-hidden="true" />
@@ -56,7 +56,7 @@ function Pokedex(props) {
                             <p>{pokemonText}</p>
                         </div>
                     </div>
-                </div>
+                </section>
             : null}
         </>
     )

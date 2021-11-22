@@ -8,7 +8,7 @@ function Footer() {
     const [playClickLinkSound] = useSound(ClickLinkSound);
 
     return (
-        <div className="footer">
+        <footer className="footer">
             <div className="links">
                 <p>Follow Me</p>
                 <a onMouseEnter={playHoverSound} onClick={playClickLinkSound} href='https://github.com/Hughzhoutrt/' aria-label='link to the GitHub of Hugh Zhou'><i className="fab fa-github-square"></i></a>
@@ -16,7 +16,7 @@ function Footer() {
                 <a onMouseEnter={playHoverSound} onClick={playClickLinkSound} href='https://twitter.com/Hugh_Zhou_' aria-label='link to the Twitter of Hugh Zhou'><i className="fab fa-twitter-square"></i></a>
             </div>
             <p>Created by <a onMouseEnter={playHoverSound} onClick={playClickLinkSound} href='https://hiyuhui.com/' aria-label='link to the portfolio of Hugh'>Hugh Zhou</a>. © All rights reserved.</p>
-        </div>
+        </footer>
     )
 }
 

@@ -7,7 +7,7 @@ import HoverPokemonSound from './audios/hoverPokemonSound.mp3';
 import ClickPokemonSound from './audios/clickPokemonSound.mp3';
 
 function GetPokemonData(props) {
-    const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg } = props;
+    const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg, catchPokemon } = props;
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState('');
@@ -48,11 +48,13 @@ function GetPokemonData(props) {
 
     return (
         <>
-            <div onMouseEnter={playHoverPokemonSound} onClick={()=> {playClickPokemonSound();reAnimation();}} className="wildPokemonImgContainer">
-                <img className={pokemonFog ? "showPokemon wildPokemonImg" 
+            <section onMouseEnter={playHoverPokemonSound} onClick={()=> {playClickPokemonSound();reAnimation();}} className="wildPokemonImgContainer">
+                <img className={catchPokemon ? "catchPokemon wildPokemonImg"
+                                :pokemonFog ? "showPokemon wildPokemonImg" 
                                 :pokemonPlay > 1 ? "playPokemon wildPokemonImg"
+                               
                                 : "hidePokemon wildPokemonImg"} src={randomPokemon} alt={randonPokemonAlt}></img>
-            </div>
+            </section>
             <AnswerTheName correctName={randomPokemonName}
                 pokemonFog={pokemonFog}
                 setPokemonFog={setPokemonFog}

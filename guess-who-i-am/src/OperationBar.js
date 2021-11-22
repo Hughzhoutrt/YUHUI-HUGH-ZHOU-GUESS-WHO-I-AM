@@ -2,9 +2,10 @@ import './App.scss';
 import useSound from 'use-sound';
 import HoverSound from './audios/buttonSoundHover.mp3';
 import ClickSound from './audios/buttonSoundClick.mp3';
+import CatchingSystem from './CatchingSystem';
 
 function OperationBar (props) {
-    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay} = props;
+    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon} = props;
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
@@ -13,6 +14,7 @@ function OperationBar (props) {
         setHeaderDisplay(true);
         setStopMusicDisplay(true);
         setStopBattleMusicDisplay(true);
+        setCatchPokemon(false);
     }
 
     const OpenningPokedexInterface = () => {
@@ -22,13 +24,21 @@ function OperationBar (props) {
     const [playHoverSound] = useSound(HoverSound);
     const [playClickSound] = useSound(ClickSound);
 
+    const CatchingPokemon = () => {
+        setCatchPokemon(!catchPokemon);
+    }
+
     return (
-        <div className="operatingBar pokemonStyleBorder">
-             <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
-             <button onMouseEnter={playHoverSound} >Catch</button>
-             <button onMouseEnter={playHoverSound}>Pokémon</button>
-             <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
-        </div>
+        <>
+            <section className="operatingBar pokemonStyleBorder">
+                <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
+                <button onMouseEnter={playHoverSound} onClick={CatchingPokemon}>Catch</button>
+                <button onMouseEnter={playHoverSound}>Pokémon</button>
+                <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
+            </section>
+
+            <CatchingSystem catchPokemon={catchPokemon} setCatchPokemon={setCatchPokemon}/>
+        </>
     )
 }
 

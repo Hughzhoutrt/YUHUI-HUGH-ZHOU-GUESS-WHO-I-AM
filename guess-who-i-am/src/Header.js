@@ -6,11 +6,11 @@ function Header(props) {
 
     return (
         <>
-            <div className={headerDisplay ? "header pokemonStyleBorder" : "header pokemonStyleBorder headerDisappear"}>
+            <header className={headerDisplay ? "header pokemonStyleBorder" : "header pokemonStyleBorder headerDisappear"}>
                 <div className="headerSubContainer">
                     <img src={TittleImg} alt="The title image of this website" />
                 </div>
-            </div>
+            </header>
         </>
     )
 }

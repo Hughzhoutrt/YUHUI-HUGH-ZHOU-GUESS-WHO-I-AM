@@ -37,17 +37,19 @@ function AnswerTheName(props) {
 
     return (
         <>
-            {submittedAlready === false ?
-                <form onSubmit={SubmitUserInputText} className="pokemonStyleBorder">
-                    <label htmlFor="pokemonInputTextArea">Guess who I am?</label>
-                    <div>
-                        <input onClick={playHoverSound} type="text" id="pokemonInputTextArea" onChange={GetUserInputText} />
-                        <button onMouseEnter={playHoverSound} onClick={()=> {playClickSound(); userInputSubmitting();}}>Submit!</button>
-                    </div>
-                </form>
-                : null
-            }
-            <div onClick={resetNamePrompt}>
+            <section>
+                {submittedAlready === false ?
+                    <form onSubmit={SubmitUserInputText} className="pokemonStyleBorder">
+                        <label htmlFor="pokemonInputTextArea">Guess who I am?</label>
+                        <div>
+                            <input onClick={playHoverSound} type="text" id="pokemonInputTextArea" onChange={GetUserInputText} />
+                            <button onMouseEnter={playHoverSound} onClick={()=> {playClickSound(); userInputSubmitting();}}>Submit!</button>
+                        </div>
+                    </form>
+                    : null
+                }
+            </section>
+            <section onClick={resetNamePrompt}>
                 {correctName === userInputText.toLowerCase() && namePrompt ? 
                 <div className="pokemonNamePrompt pokemonStyleBorder">
                     <p>You got it! <span>{upperCasePokemonName}</span>! I choose you!</p>
@@ -58,7 +60,7 @@ function AnswerTheName(props) {
                 </div>
                 : null
                 }
-            </div>
+            </section>
         </>
     )
 }

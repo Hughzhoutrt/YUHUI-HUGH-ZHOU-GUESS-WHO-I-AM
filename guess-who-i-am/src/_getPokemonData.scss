@@ -19,7 +19,7 @@
     88% {filter: brightness(88%); transform: rotate(6deg);}
     92% {filter: brightness(92%); transform: rotate(-6deg);}
     96% {filter: brightness(96%); transform: rotate(6deg);}
-   100% {filter: brightness(100%); transform: rotate(-3deg);}
+    100% {filter: brightness(100%); transform: rotate(-3deg);}
   }
   
   .playPokemon {
@@ -47,4 +47,21 @@
       height: 40vh;
     }
   }
+
+  .catchPokemon {
+    filter: brightness(1000%);
+    transform: scale(0);
+    animation-duration: 5s;
+    animation-name: catchingPokemon;
+    animation-timing-function: linear;  
+  }
+
+  @keyframes catchingPokemon {
+    0%  {transform: scale(1); filter: brightness(100%);}
+    41% {transform: scale(1); filter: brightness(100%);}
+    60% {transform: scale(0); filter: brightness(1000%);}
+    100% {transform: scale(0); filter: brightness(1000%);}
+  }
+
+
   //GetPokemonData END
