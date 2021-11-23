@@ -33,6 +33,10 @@ function App() {
 
   const [userName, setUserName] = useState('');
 
+  const [userPokemonNumber, setUserPokemonNumber] = useState(0);
+
+  const [pokemonListShow, setPokemonListShow] = useState(false);
+
   const letPokemonAppear = () => {
     setStopBattleMusicDisplay(false);
     setPokemonAppear(!pokemonAppear);
@@ -93,7 +97,10 @@ const UserNameSubmitButton = () => {
         pokemonImg={pokemonImg}
         setPokemonImg={setPokemonImg} 
         catchPokemon={catchPokemon}
-        userName={userName}/>
+        userName={userName}
+        userPokemonNumber={userPokemonNumber}
+        setUserPokemonNumber={setUserPokemonNumber}
+        pokemonListShow={pokemonListShow}/>
         : null}
       {<Pokedex pokemonName={pokemonName}
         pokemonImg={pokemonImg}
@@ -111,11 +118,16 @@ const UserNameSubmitButton = () => {
             setStopMusicDisplay={setStopMusicDisplay}
             setStopBattleMusicDisplay={setStopBattleMusicDisplay}
             catchPokemon={catchPokemon}
-            setCatchPokemon={setCatchPokemon}/>
+            setCatchPokemon={setCatchPokemon}
+            userPokemonNumber={userPokemonNumber}
+            pokemonListShow={pokemonListShow}
+            setPokemonListShow={setPokemonListShow}/>
         </section>
         : null}
-      <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
-      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}} onToggle={stopBattleMusicDisplay ? stop() : null}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i></button>
+      <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view"/>
+      {pokemonAppear ?
+      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}} onToggle={stopBattleMusicDisplay ? stop() : null}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i>Stop Battle Music!</button>
+      : null}
       <Footer />
     </main>
   );

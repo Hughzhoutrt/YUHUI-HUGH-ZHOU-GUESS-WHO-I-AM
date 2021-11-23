@@ -5,7 +5,7 @@ import ClickSound from './audios/buttonSoundClick.mp3';
 import CatchingSystem from './CatchingSystem';
 
 function OperationBar (props) {
-    const {pokedexShow, setPokedexShow, setPokemonAppear, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon, userSignIn} = props;
+    const {pokedexShow, setPokedexShow, setPokemonAppear, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon, userPokemonNumber, pokemonListShow, setPokemonListShow} = props;
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
@@ -15,6 +15,7 @@ function OperationBar (props) {
         setStopMusicDisplay(true);
         setStopBattleMusicDisplay(true);
         setCatchPokemon(false);
+        setPokemonListShow(false);
     }
 
     const OpenningPokedexInterface = () => {
@@ -25,7 +26,15 @@ function OperationBar (props) {
     const [playClickSound] = useSound(ClickSound);
 
     const CatchingPokemon = () => {
+        if (userPokemonNumber >= 6) {
+            alert(`You already have 6 Pokémons and cannot catch a new one!`);
+        } else {
         setCatchPokemon(true);
+        }
+    }
+
+    const OpenPokemonList = () => {
+        setPokemonListShow(!pokemonListShow);
     }
 
     return (
@@ -33,11 +42,12 @@ function OperationBar (props) {
             <section className="operatingBar pokemonStyleBorder">
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
                 <button onMouseEnter={playHoverSound} onClick={CatchingPokemon}>Catch</button>
-                <button onMouseEnter={playHoverSound}>Pokémon</button>
+                <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenPokemonList();}}>Pokémon</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
             </section>
 
-            <CatchingSystem catchPokemon={catchPokemon}/>
+            <CatchingSystem catchPokemon={catchPokemon}
+            userPokemonNumber={userPokemonNumber}/>
         </>
     )
 }

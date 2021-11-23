@@ -1,0 +1,45 @@
+.pokemonPackage {
+    position: absolute;
+    right:2vw;
+    bottom: 20vh;
+    width: 250px;
+    height:480px;
+    
+    div {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 10px;
+
+        p {
+            font-size: 0.7rem;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        img {
+            height: 80px;
+        }
+
+        &:hover {
+            color: #4192b3;
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            img {
+                position:relative;
+                animation: pokemonDance 0.3s infinite linear;
+            }
+
+            @keyframes pokemonDance {
+                0% {top:0;}
+                25% {top:5px;}
+                50% {top:0;}
+                75% {top:-5px}
+                100% {top:0;}
+            }
+        }
+        
+    }
+}

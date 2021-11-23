@@ -3,124 +3,112 @@ import firebase from './firebase';
 import { useState, useEffect } from 'react';
 import useSound from 'use-sound';
 import HoverSound from './audios/buttonSoundHover.mp3';
-import ClickSound from './audios/buttonSoundClick.mp3';
 
 
 function PokemonList(props) {
-    const { catchPokemon, pokemonName, pokemonImg, userName } = props;
+    const { catchPokemon, pokemonName, pokemonImg, userName, userPokemonNumber,setUserPokemonNumber, pokemonListShow } = props;
 
     const [playHoverSound] = useSound(HoverSound);
-    const [playClickSound] = useSound(ClickSound);
 
-    const [userPokemonNumber, setUserPokemonNumber] = useState(0)
     const [firstUserPokemon, setFirstUserPokemon] =useState({});
     const [secondUserPokemon, setSecondUserPokemon] =useState({});
     const [thirdUserPokemon, setThirdUserPokemon] =useState({});
     const [fourthUserPokemon, setFourthUserPokemon] =useState({});
     const [fifthtUserPokemon, setFifthUserPokemon] =useState({});
     const [sixthtUserPokemon, setSixthUserPokemon] =useState({});
+    const [removePokemonFromList, setRemovePokemonFromList] = useState(false);
 
     
 
-    const updatingCatchedPokemon = (userName, pokemonSerialNumber,pokemonName, pokemonUrl) => {
-        const dbRef = firebase.database().ref(userName + '/' + pokemonSerialNumber);
+    const updatingCatchedPokemon = (userName, pokemonName, pokemonUrl) => {
+        const dbRef = firebase.database().ref(userName + '/' + pokemonName);
         dbRef.set({
                 name:pokemonName,
                 img:pokemonUrl
         });
     }
 
+    const removeCatchedPokemon = (userName, pokemonName) => {
+        const dbRefrv = firebase.database().ref(userName + '/' + pokemonName);
+        dbRefrv.remove();
+        setRemovePokemonFromList(!removePokemonFromList);
+    }
+
     useEffect(() => {
-            const dbRef = firebase.database().ref();
-            dbRef.on('value', (response) => {
-                const data = response.val();
-                console.log(userName);
-                console.log(data);
-                const dataConvertToArray = Object.keys(data);
-                console.log(dataConvertToArray);
-                console.log(String(dataConvertToArray).indexOf(userName));
-                if (String(dataConvertToArray).indexOf(userName) !== -1) {
-                    setUserPokemonNumber(Object.keys(data[userName]).length);
-                    console.log(userPokemonNumber);
-                    console.log(data[userName]);
-                    const userPokemons = Object.values(data[userName]);
-                    console.log(userPokemons);
-                    if (userPokemons[0] !== undefined) {
-                        setFirstUserPokemon(userPokemons[0]);}
-                    if (userPokemons[1] !== undefined) {
-                        setSecondUserPokemon(userPokemons[1]);}
-                    if (userPokemons[2] !== undefined) {
-                        setThirdUserPokemon(userPokemons[2]);}
-                    if (userPokemons[3] !== undefined) {
-                        setFourthUserPokemon(userPokemons[3]);}
-                    if (userPokemons[4] !== undefined) {
-                        setFifthUserPokemon(userPokemons[4]);}
-                    if (userPokemons[5] !== undefined) {
-                        setSixthUserPokemon(userPokemons[5]);}
-                } else {
-                    firebase.database().ref(userName).set('');
-                }
-            })
-        
-    },[userName])
+        const dbRef = firebase.database().ref();
+        dbRef.on('value', (response) => {
+            const data = response.val();
+            const dataConvertToArray = Object.keys(data);
+            if (String(dataConvertToArray).indexOf(userName) !== -1) {
+                setUserPokemonNumber(Object.keys(data[userName]).length);
+                const userPokemons = Object.values(data[userName]);
+                if (userPokemons[0] !== undefined) {
+                    setFirstUserPokemon(userPokemons[0]);}
+                if (userPokemons[1] !== undefined) {
+                    setSecondUserPokemon(userPokemons[1]);}
+                if (userPokemons[2] !== undefined) {
+                    setThirdUserPokemon(userPokemons[2]);}
+                if (userPokemons[3] !== undefined) {
+                    setFourthUserPokemon(userPokemons[3]);}
+                if (userPokemons[4] !== undefined) {
+                    setFifthUserPokemon(userPokemons[4]);}
+                if (userPokemons[5] !== undefined) {
+                    setSixthUserPokemon(userPokemons[5]);}
+            } else {
+                firebase.database().ref(userName).set('');
+            }
+            console.log('render');
+        })
+    },[userName, removePokemonFromList])
 
 
     useEffect(() => {
         if(catchPokemon) {
-            console.log(userName);
-            const serialNumber = 'third';
-        updatingCatchedPokemon(userName,serialNumber,pokemonName, pokemonImg);
+        updatingCatchedPokemon(userName,pokemonName, pokemonImg);
         }
-
-        //  const dbRef = firebase.database().ref();
-        //  dbRef.on('value', (response) => {
-
-        //      const data = response.val();
-        //     console.log(data);
-        //  })
-
     }, [catchPokemon])
 
     return (
         <>
-            <section>
+            {pokemonListShow ? <section className="pokemonPackage pokemonStyleBorder">
                 {firstUserPokemon !== undefined ?
-                    <div>
-                        <h2>{firstUserPokemon.name}</h2>
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, firstUserPokemon.name);e.stopPropagation()}}>
+                        <p>{firstUserPokemon.name}</p>
                         <img src={firstUserPokemon.img} />
                     </div>
-                    : null}
+                :  <div></div>}
                  {secondUserPokemon !== undefined ?
-                    <div>
-                        <h2>{secondUserPokemon.name}</h2>
-                        <img src={secondUserPokemon.img} />
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, secondUserPokemon.name);e.stopPropagation()}}>
+                        <p>{secondUserPokemon.name}</p>
+                        <img src={secondUserPokemon.img}  />
                     </div>
-                    : null}
+                    : <div></div>}
                 {thirdUserPokemon !== undefined ?
-                    <div>
-                        <h2>{thirdUserPokemon.name}</h2>
-                        <img src={thirdUserPokemon.img} />
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, thirdUserPokemon.name);e.stopPropagation()}}>
+                        <p>{thirdUserPokemon.name}</p>
+                        <img src={thirdUserPokemon.img}  />
                     </div>
-                : null}
+                : <div></div>}
                 {fourthUserPokemon !== undefined ?
-                    <div>
-                        <h2>{fourthUserPokemon.name}</h2>
-                        <img src={fourthUserPokemon.img} />
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, fourthUserPokemon.name);e.stopPropagation()}}>
+                        <p>{fourthUserPokemon.name}</p>
+                        <img src={fourthUserPokemon.img}/>
                     </div>
-                : null}
+                : <div></div>}
                 {fifthtUserPokemon !== undefined ?
-                    <div>
-                        <h2>{fifthtUserPokemon.name}</h2>
-                        <img src={fifthtUserPokemon.img} />
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, fifthtUserPokemon.name);e.stopPropagation()}}>
+                        <p>{fifthtUserPokemon.name}</p>
+                        <img src={fifthtUserPokemon.img}  />
                     </div>
-                : null}
+                : <div></div>}
                 {sixthtUserPokemon !== undefined ?
-                    <div>
-                        <h2>{sixthtUserPokemon.name}</h2>
+                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, sixthtUserPokemon.name);e.stopPropagation()}}>
+                        <p>{sixthtUserPokemon.name}</p>
                         <img src={sixthtUserPokemon.img} />
                     </div>
-                : null}
+                : <div></div>}
             </section>
+            :null}
         </>
     )
 }
