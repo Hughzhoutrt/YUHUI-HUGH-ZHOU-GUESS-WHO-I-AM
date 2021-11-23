@@ -8,7 +8,7 @@ function Header(props) {
         <>
             <header className={headerDisplay ? "header pokemonStyleBorder" : "header pokemonStyleBorder headerDisappear"}>
                 <div className="headerSubContainer">
-                    <img src={TittleImg} alt="The title image of this website" />
+                    <img src={TittleImg} alt="The title of this website" />
                 </div>
             </header>
         </>

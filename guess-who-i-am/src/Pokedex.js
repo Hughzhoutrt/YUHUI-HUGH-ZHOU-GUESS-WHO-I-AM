@@ -30,7 +30,7 @@ function Pokedex(props) {
                 }
 
             })
-    }, [pokemonName])
+    }, [pokemonName, pokemonAppear])
 
     const pokemonNameInPokedex = pokemonName.slice(0, 1).toUpperCase() + pokemonName.slice(1)
 
@@ -39,13 +39,13 @@ function Pokedex(props) {
             {pokedexShow && pokemonAppear ?
                 <section className="pokedexContainer pokemonStyleBorder">
                     <div className="pokedexSubContainer">
-                        <img className="pokedexDecoration" src={pokedexImg} aria-hidden="true" />   
-                        <img className="pokemonBallDecoration pokemonBallDecoration1" src={pokemonBall} aria-hidden="true" />
-                        <img className="pokemonBallDecoration pokemonBallDecoration2" src={pokemonBall} aria-hidden="true" />
-                        <img className="pokemonBallDecoration pokemonBallDecoration3" src={pokemonBall} aria-hidden="true" />
-                        <img className="pokemonBallDecoration pokemonBallDecoration4" src={pokemonBall} aria-hidden="true" />
+                        <img className="pokedexDecoration" src={pokedexImg} aria-hidden="true" alt=""/>   
+                        <img className="pokemonBallDecoration pokemonBallDecoration1" src={pokemonBall} aria-hidden="true" alt=""/>
+                        <img className="pokemonBallDecoration pokemonBallDecoration2" src={pokemonBall} aria-hidden="true" alt=""/>
+                        <img className="pokemonBallDecoration pokemonBallDecoration3" src={pokemonBall} aria-hidden="true" alt=""/>
+                        <img className="pokemonBallDecoration pokemonBallDecoration4" src={pokemonBall} aria-hidden="true" alt=""/>
                         <div className="podexTittle">
-                            <img src={pokemonImg} />
+                            <img src={pokemonImg} alt="The Pokémon checked by Pokédex" />
                             <h2>{pokemonNameInPokedex}</h2>
                         </div>
                         <div className="podexText">

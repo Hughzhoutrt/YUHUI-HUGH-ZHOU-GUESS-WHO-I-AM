@@ -33,7 +33,7 @@ function GetPokemonData(props) {
                 setPokemonName(response.data.name);
                 setPokemonImg(response.data.sprites.front_default);
             })
-    }, [])
+    },[])
 
     const reAnimation = () =>{
         setPokemonFog(!pokemonFog);

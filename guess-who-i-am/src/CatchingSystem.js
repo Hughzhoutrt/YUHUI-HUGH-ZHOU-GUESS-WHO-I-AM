@@ -1,5 +1,4 @@
 import './App.scss';
-import useSound from 'use-sound';
 import PokemonBall from './imgs/pokemonBall.png';
 
 function CatchingSystem (props) {
