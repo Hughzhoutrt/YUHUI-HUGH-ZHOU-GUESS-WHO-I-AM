@@ -39,7 +39,7 @@ function AnswerTheName(props) {
         <>
             <section>
                 {submittedAlready === false ?
-                    <form onSubmit={SubmitUserInputText} className="pokemonStyleBorder">
+                    <form onSubmit={SubmitUserInputText} className="guessNameInput pokemonStyleBorder">
                         <label htmlFor="pokemonInputTextArea">Guess who I am?</label>
                         <div>
                             <input onClick={playHoverSound} type="text" id="pokemonInputTextArea" onChange={GetUserInputText} />

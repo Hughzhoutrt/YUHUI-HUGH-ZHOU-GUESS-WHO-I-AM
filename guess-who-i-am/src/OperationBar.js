@@ -25,7 +25,7 @@ function OperationBar (props) {
     const [playClickSound] = useSound(ClickSound);
 
     const CatchingPokemon = () => {
-        setCatchPokemon(true);
+        setCatchPokemon(!catchPokemon);
     }
 
     return (

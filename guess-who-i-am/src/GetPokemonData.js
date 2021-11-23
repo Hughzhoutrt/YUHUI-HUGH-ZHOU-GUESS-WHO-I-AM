@@ -8,7 +8,7 @@ import ClickPokemonSound from './audios/clickPokemonSound.mp3';
 import PokemonList from './PokemonList';
 
 function GetPokemonData(props) {
-    const { operationBarShow, setOperationBarShow, setPokemonName, setPokemonImg, catchPokemon} = props;
+    const { operationBarShow, setOperationBarShow, pokemonName, setPokemonName, pokemonImg, setPokemonImg, catchPokemon} = props;
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState('');
@@ -63,7 +63,9 @@ function GetPokemonData(props) {
                 operationBarShow={operationBarShow}
                 setOperationBarShow={setOperationBarShow}/>
 
-            <PokemonList catchPokemon={catchPokemon}/>
+            <PokemonList catchPokemon={catchPokemon}
+            pokemonName={pokemonName}
+            pokemonImg={pokemonImg}/>
         </>
     )
 }

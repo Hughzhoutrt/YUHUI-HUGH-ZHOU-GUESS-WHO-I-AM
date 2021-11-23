@@ -55,6 +55,7 @@ function App() {
         setOperationBarShow={setOperationBarShow}
         pokemonName={pokemonName}
         setPokemonName={setPokemonName}
+        pokemonImg={pokemonImg}
         setPokemonImg={setPokemonImg} 
         catchPokemon={catchPokemon}/>
         : null}
