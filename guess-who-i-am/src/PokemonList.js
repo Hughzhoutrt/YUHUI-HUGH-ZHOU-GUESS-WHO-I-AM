@@ -58,14 +58,14 @@ function PokemonList(props) {
                 firebase.database().ref(userName).set('');
             }
         })
-    },[userName, removePokemonFromList])
+    },[userName, removePokemonFromList,setUserPokemonNumber])
 
 
     useEffect(() => {
         if(catchPokemon) {
         updatingCatchedPokemon(userName,pokemonName, pokemonImg);
         }
-    }, [catchPokemon])
+    }, [catchPokemon, pokemonImg, pokemonName, userName])
 
     return (
         <>
