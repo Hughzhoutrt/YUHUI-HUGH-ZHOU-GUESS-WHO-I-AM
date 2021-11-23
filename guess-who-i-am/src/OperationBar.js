@@ -5,7 +5,7 @@ import ClickSound from './audios/buttonSoundClick.mp3';
 import CatchingSystem from './CatchingSystem';
 
 function OperationBar (props) {
-    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon} = props;
+    const {pokedexShow, setPokedexShow, pokemonAppear, setPokemonAppear, operationBarShow, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon, userSignIn, setUserSignIn} = props;
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
@@ -37,7 +37,7 @@ function OperationBar (props) {
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
             </section>
 
-            <CatchingSystem catchPokemon={catchPokemon} setCatchPokemon={setCatchPokemon}/>
+            <CatchingSystem catchPokemon={catchPokemon} setCatchPokemon={setCatchPokemon} userSignIn={userSignIn}/>
         </>
     )
 }

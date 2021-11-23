@@ -29,6 +29,8 @@ function App() {
 
   const [catchPokemon, setCatchPokemon] = useState(false); 
 
+  const [userSignIn, setUserSignIn] = useState(false);
+
   const letPokemonAppear = () => {
     setStopBattleMusicDisplay(false);
     setPokemonAppear(!pokemonAppear);
@@ -57,7 +59,9 @@ function App() {
         setPokemonName={setPokemonName}
         pokemonImg={pokemonImg}
         setPokemonImg={setPokemonImg} 
-        catchPokemon={catchPokemon}/>
+        catchPokemon={catchPokemon}
+        userSignIn={userSignIn} 
+        setUserSignIn={setUserSignIn}/>
         : null}
       {<Pokedex pokemonName={pokemonName}
         pokemonImg={pokemonImg}
@@ -76,7 +80,9 @@ function App() {
             setStopMusicDisplay={setStopMusicDisplay}
             setStopBattleMusicDisplay={setStopBattleMusicDisplay}
             catchPokemon={catchPokemon}
-            setCatchPokemon={setCatchPokemon}/>
+            setCatchPokemon={setCatchPokemon}
+            userSignIn={userSignIn}
+            setUserSignIn={setUserSignIn}/>
         </section>
         : null}
       <section>
