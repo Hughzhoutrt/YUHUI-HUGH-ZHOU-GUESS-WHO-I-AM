@@ -31,6 +31,8 @@ function App() {
 
   const [userSignIn, setUserSignIn] = useState(false);
 
+  const [userName, setUserName] = useState('');
+
   const letPokemonAppear = () => {
     setStopBattleMusicDisplay(false);
     setPokemonAppear(!pokemonAppear);
@@ -49,10 +51,41 @@ function App() {
       setStopMusicDisplay(!stopMusicDisplay);
     }
   }
+
+  const UserNameInput = (event) => {
+    setUserName(event.target.value);
+
+  }
+
+const UserNameSubmit = (event) => {
+    event.preventDefault();
+  }
+
+const UserNameSubmitButton = () => {
+    if(userName === '') {
+      alert (`Please enter your user name for your Pokémon list!`)
+    } else {
+    setUserSignIn(true);
+    }
+  }
   
   return (
     <main className="App">
       <Header headerDisplay={headerDisplay}/>
+      {userSignIn === false?
+                <section className="userNameInputForm pokemonStyleBorder">
+                    <form onSubmit={UserNameSubmit}>
+                        <label htmlFor="userNameInputTextArea">Please enter your username:</label>
+                        <div>
+                            <input onClick={playHoverSound} type="text" id="userNameInputTextArea" onChange={UserNameInput} />
+                            <button onMouseEnter={playHoverSound} onClick={() => { playClickSound(); UserNameSubmitButton(); }}>Submit!</button>
+                        </div>
+                    </form>
+                </section>
+                : null}
+                <section>
+      {!pokemonAppear && userSignIn? <button className="openingButton pokemonStyleBorder" onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); playMusic();letPokemonAppear();}}>Ready to meet a wild Pokémon?</button> : null}
+      </section>
       {pokemonAppear ? <GetPokemonData operationBarShow={operationBarShow}
         setOperationBarShow={setOperationBarShow}
         pokemonName={pokemonName}
@@ -60,14 +93,12 @@ function App() {
         pokemonImg={pokemonImg}
         setPokemonImg={setPokemonImg} 
         catchPokemon={catchPokemon}
-        userSignIn={userSignIn} 
-        setUserSignIn={setUserSignIn}/>
+        userName={userName}/>
         : null}
       {<Pokedex pokemonName={pokemonName}
         pokemonImg={pokemonImg}
         pokedexShow={pokedexShow}
-        pokemonAppear={pokemonAppear}
-      />}
+        pokemonAppear={pokemonAppear}/>}
       {operationBarShow && pokemonAppear ?
         <section>
           <OperationBar pokedexShow={pokedexShow}
@@ -80,14 +111,9 @@ function App() {
             setStopMusicDisplay={setStopMusicDisplay}
             setStopBattleMusicDisplay={setStopBattleMusicDisplay}
             catchPokemon={catchPokemon}
-            setCatchPokemon={setCatchPokemon}
-            userSignIn={userSignIn}
-            setUserSignIn={setUserSignIn}/>
+            setCatchPokemon={setCatchPokemon}/>
         </section>
         : null}
-      <section>
-        {!pokemonAppear ? <button className="openingButton pokemonStyleBorder" onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); playMusic();letPokemonAppear();}}>Ready to meet a wild Pokémon?</button> : null}
-      </section>
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view" />
       <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}} onToggle={stopBattleMusicDisplay ? stop() : null}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i></button>
       <Footer />

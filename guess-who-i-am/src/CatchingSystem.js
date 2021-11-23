@@ -3,7 +3,7 @@ import useSound from 'use-sound';
 import PokemonBall from './imgs/pokemonBall.png';
 
 function CatchingSystem (props) {
-    const {catchPokemon, setCatchPokemon, userSignIn} = props;
+    const {catchPokemon} = props;
 
 
 
@@ -11,7 +11,7 @@ function CatchingSystem (props) {
 
     return (
         <section>
-            { catchPokemon && userSignIn? 
+            { catchPokemon? 
             <img className="pokemonBall catchingAct" src={PokemonBall} alt="A Pokémon ball" />
             : null}   
         </section>

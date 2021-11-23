@@ -8,7 +8,7 @@ import ClickPokemonSound from './audios/clickPokemonSound.mp3';
 import PokemonList from './PokemonList';
 
 function GetPokemonData(props) {
-    const { operationBarShow, setOperationBarShow, pokemonName, setPokemonName, pokemonImg, setPokemonImg, catchPokemon, userSignIn, setUserSignIn} = props;
+    const { operationBarShow, setOperationBarShow, pokemonName, setPokemonName, pokemonImg, setPokemonImg, catchPokemon, userName} = props;
     const [randomPokemon, setRandomPokemon] = useState(''); // Get a Pokemon based on the randomNumber
     const [randomPokemonName, setRandomPokemonName] = useState('');
     const [randonPokemonAlt, setRandomPokemonAlt] = useState('');
@@ -50,7 +50,7 @@ function GetPokemonData(props) {
     return (
         <>
             <section onMouseEnter={playHoverPokemonSound} onClick={()=> {playClickPokemonSound();reAnimation();}} className="wildPokemonImgContainer">
-                <img className={catchPokemon && userSignIn ? "catchPokemon wildPokemonImg"
+                <img className={catchPokemon ? "catchPokemon wildPokemonImg"
                                 :pokemonFog ? "showPokemon wildPokemonImg" 
                                 :pokemonPlay > 1 ? "playPokemon wildPokemonImg"
                                
@@ -66,8 +66,7 @@ function GetPokemonData(props) {
             <PokemonList catchPokemon={catchPokemon}
             pokemonName={pokemonName}
             pokemonImg={pokemonImg}
-            userSignIn={userSignIn}
-            setUserSignIn={setUserSignIn}/>
+            userName={userName}/>
         </>
     )
 }
