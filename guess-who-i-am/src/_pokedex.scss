@@ -1,9 +1,9 @@
 //Pokedex START
 .pokedexContainer {
-    width: 600px;
+    width: 30vw;
     position:absolute;
     bottom: 25vh;
-    left: calc(50vw - 300px);
+    left:35vw;
     z-index: 2;
   
     .pokedexSubContainer {
@@ -74,3 +74,17 @@
     padding-bottom: 30px;
   }
   //Pokedex END
+
+  @media (max-width:1440px) {
+    .pokedexContainer {
+      width: 36vw;
+      left: 32vw;
+    }
+  }
+
+  @media (max-width:1024px) {
+    .pokedexContainer {
+      width: 50vw;
+      left: 32vw;
+    }
+  }

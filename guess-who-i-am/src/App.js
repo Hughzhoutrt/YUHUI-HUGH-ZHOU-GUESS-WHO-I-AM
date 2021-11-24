@@ -73,6 +73,7 @@ const UserNameSubmitButton = () => {
     setUserSignIn(true);
     }
   }
+
   useEffect(()=>{
     if (stopBattleMusicDisplay) {
       stop();
@@ -132,9 +133,9 @@ const UserNameSubmitButton = () => {
             setPokemonListShow={setPokemonListShow}/>
         </section>
         : null}
-      <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view"/>
+      <img className={pokemonAppear ? "heroBackMovingLeft heroBack" : "heroBack"} src={HeroBackImg} alt="Pokémon trainer's back view"/>
       {pokemonAppear ?
-      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i>Stop Battle Music!</button>
+      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" :"stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i>Stop Battle Music!</button>
       : null}
       <Footer />
     </main>

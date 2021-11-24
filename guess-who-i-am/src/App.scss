@@ -19,7 +19,7 @@
   width: 100vw;
   margin: 0 auto;
   max-width: 1920px;
-  max-height: 1028px;
+  max-height: 1366px;
   position: relative;
   text-align: center;
   overflow-x: hidden;
@@ -160,5 +160,35 @@
 
   .openingButton {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width:1024px) {
+  .userNameInputForm {
+    left: 25vw;
+    width: 50vw;
+   } 
+
+   .openingButton {
+    left: 25vw;
+    width: 50vw;
+  }
+
+  .heroBack {
+    left:0;
+  }
+
+  .heroBackMovingLeft {
+    left: -15vw;
+    animation: heroBackMovingLeft 1s linear;
+  }
+
+  @keyframes heroBackMovingLeft {
+    from {left:0;}
+    to {left:-15vw;}
+  }
+
+  .stopMusicButton {
+    bottom:5vh;
   }
 }

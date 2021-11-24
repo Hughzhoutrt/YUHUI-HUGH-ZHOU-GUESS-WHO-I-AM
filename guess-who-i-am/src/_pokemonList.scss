@@ -43,3 +43,13 @@
         
     }
 }
+
+@media (max-width: 1024px) {
+    .pokemonPackage {
+        position: absolute;
+        left:2vw;
+        bottom: 35vh;
+        width: 250px;
+        height:480px;
+    }
+}

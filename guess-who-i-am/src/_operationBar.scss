@@ -43,3 +43,10 @@
       left:32vw;
     }
   }
+
+  @media (max-width: 1024px) {
+    .operatingBar {
+      width: 50vw;
+      bottom:10vh;
+    }
+  }

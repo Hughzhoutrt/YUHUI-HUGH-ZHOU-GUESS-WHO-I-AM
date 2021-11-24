@@ -65,3 +65,14 @@
 
 
   //GetPokemonData END
+
+  @media (max-width: 1024px) {
+    .wildPokemonImgContainer {
+      position:absolute;
+      top:30vh;
+      right: 5vw;
+      .wildPokemonImg {
+        height: 30vh;
+      }
+    }
+  }

@@ -83,8 +83,19 @@
 
 @media (max-width:1280px) {
   .guessNameInput {
-    bottom: 15vh;
-    left: 35vw;
-    width: 30vw;
+    left: 30vw;
+    width: 40vw;
+  }
+}
+
+@media (max-width:1024px) {
+  .guessNameInput {
+    left: 25vw;
+    width: 50vw;
+  }
+
+  .pokemonNamePrompt {
+    width: 50vw;
+    left: 32vw;
   }
 }
