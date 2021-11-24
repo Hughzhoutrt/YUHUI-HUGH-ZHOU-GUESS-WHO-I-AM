@@ -10,12 +10,6 @@ function PokemonList(props) {
 
     const [playHoverSound] = useSound(HoverSound);
 
-    const [firstUserPokemon, setFirstUserPokemon] =useState({});
-    const [secondUserPokemon, setSecondUserPokemon] =useState({});
-    const [thirdUserPokemon, setThirdUserPokemon] =useState({});
-    const [fourthUserPokemon, setFourthUserPokemon] =useState({});
-    const [fifthtUserPokemon, setFifthUserPokemon] =useState({});
-    const [sixthtUserPokemon, setSixthUserPokemon] =useState({});
     const [removePokemonFromList, setRemovePokemonFromList] = useState(false);
     const [userPokemonTeam, setUserPokemonTeam] =useState([]);
     
@@ -44,21 +38,6 @@ function PokemonList(props) {
                 setUserPokemonNumber(Object.keys(data[userName]).length);
                 const userPokemons = Object.values(data[userName]);
                 setUserPokemonTeam(userPokemons);
-
-
-                console.log(userPokemons);
-                if (userPokemons[0] !== undefined) {
-                    setFirstUserPokemon(userPokemons[0]);}
-                if (userPokemons[1] !== undefined) {
-                    setSecondUserPokemon(userPokemons[1]);}
-                if (userPokemons[2] !== undefined) {
-                    setThirdUserPokemon(userPokemons[2]);}
-                if (userPokemons[3] !== undefined) {
-                    setFourthUserPokemon(userPokemons[3]);}
-                if (userPokemons[4] !== undefined) {
-                    setFifthUserPokemon(userPokemons[4]);}
-                if (userPokemons[5] !== undefined) {
-                    setSixthUserPokemon(userPokemons[5]);}
             } else {
                 firebase.database().ref(userName).set('');
             }
@@ -77,50 +56,12 @@ function PokemonList(props) {
             {pokemonListShow ? <section className="pokemonPackage pokemonStyleBorder">
                 {userPokemonTeam.map((pokemon)=>{
                     return (
-                        //  Take the div working one by one 
                         <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, pokemon.name);e.stopPropagation()}}>
                             <p>{pokemon.name}</p>
-                            <img src={pokemon.img} />
+                            <img src={pokemon.img} alt={pokemon.name + ` in the Pokédex`}/>
                         </div>
                     )
                 })}
-
-                {/* {firstUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, firstUserPokemon.name);e.stopPropagation()}}>
-                        <p>{firstUserPokemon.name}</p>
-                        <img src={firstUserPokemon.img} alt={firstUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                :  <div></div>}
-                 {secondUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, secondUserPokemon.name);e.stopPropagation()}}>
-                        <p>{secondUserPokemon.name}</p>
-                        <img src={secondUserPokemon.img}  alt={secondUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                    : <div></div>}
-                {thirdUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, thirdUserPokemon.name);e.stopPropagation()}}>
-                        <p>{thirdUserPokemon.name}</p>
-                        <img src={thirdUserPokemon.img}  alt={thirdUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                : <div></div>}
-                {fourthUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, fourthUserPokemon.name);e.stopPropagation()}}>
-                        <p>{fourthUserPokemon.name}</p>
-                        <img src={fourthUserPokemon.img} alt={fourthUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                : <div></div>}
-                {fifthtUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, fifthtUserPokemon.name);e.stopPropagation()}}>
-                        <p>{fifthtUserPokemon.name}</p>
-                        <img src={fifthtUserPokemon.img}  alt={fifthtUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                : <div></div>}
-                {sixthtUserPokemon !== undefined ?
-                    <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, sixthtUserPokemon.name);e.stopPropagation()}}>
-                        <p>{sixthtUserPokemon.name}</p>
-                        <img src={sixthtUserPokemon.img} alt={sixthtUserPokemon.name + ` in your Pokémon package.`}/>
-                    </div>
-                : <div></div>} */}
             </section>
             :null}
         </>

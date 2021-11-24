@@ -4,9 +4,11 @@ import PokemonBall from './imgs/pokemonBall.png';
 function CatchingSystem (props) {
     const {catchPokemon} = props;
 
+    
+
     return (
         <section>
-            { catchPokemon? 
+            { catchPokemon ? 
             <img className="pokemonBall catchingAct" src={PokemonBall} alt="A Pokémon ball" />
             : null}   
         </section>

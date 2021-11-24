@@ -18,6 +18,10 @@
         background-color: white;
         cursor: pointer;
 
+        &:disabled {
+          text-decoration: line-through double #f87058;
+        }
+
         &:hover::before {
           content: "";
           background-image: url(./imgs/trianglePointer.png);

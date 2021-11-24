@@ -1,5 +1,6 @@
 import './App.scss';
 import useSound from 'use-sound';
+import { useState } from 'react';
 import HoverSound from './audios/buttonSoundHover.mp3';
 import ClickSound from './audios/buttonSoundClick.mp3';
 import CatchingSystem from './CatchingSystem';
@@ -7,6 +8,8 @@ import TossSound from './audios/tossBall.mp3';
 
 function OperationBar (props) {
     const {pokedexShow, setPokedexShow, setPokemonAppear, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon, userPokemonNumber, pokemonListShow, setPokemonListShow} = props;
+
+    const [alreadyCatched, setAlreadyCatched] = useState(false);
 
     const resetTheWholeInterface = () => {
         setPokemonAppear(false);
@@ -17,6 +20,7 @@ function OperationBar (props) {
         setStopBattleMusicDisplay(true);
         setCatchPokemon(false);
         setPokemonListShow(false);
+        setAlreadyCatched(false);
     }
 
     const OpenningPokedexInterface = () => {
@@ -39,11 +43,15 @@ function OperationBar (props) {
         setPokemonListShow(!pokemonListShow);
     }
 
+    const AlreadyCatchedIt = () => {
+        setAlreadyCatched(true);
+    }
+
     return (
         <>
             <section className="operatingBar pokemonStyleBorder">
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
-                <button onMouseEnter={playHoverSound} onClick={()=>{CatchingPokemon(); playTossSound();}}>Catch</button>
+                <button onMouseEnter={playHoverSound} onClick={()=>{CatchingPokemon(); playTossSound(); AlreadyCatchedIt();}} disabled={alreadyCatched? true : false}>Catch</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenPokemonList();}}>Pokémon</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
             </section>
