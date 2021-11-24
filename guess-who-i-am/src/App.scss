@@ -192,3 +192,146 @@
     bottom:5vh;
   }
 }
+
+@media (max-width: 820px) {
+  .userNameInputForm {
+    left: 20vw;
+    width: 60vw;
+   } 
+
+  .openingButton {
+    left: 20vw;
+    width: 60vw;
+  }
+
+  .heroBack {
+    left:-10vw;
+  }
+
+  .heroBackMovingLeft {
+    left: -25vw;
+  }
+
+  @keyframes heroBackMovingLeft {
+    from {left:-10vw;}
+    to {left:-25vw;}
+  }
+}
+
+@media (max-width:768px) {
+  .heroBack {
+    height: 400px;
+  }
+}
+
+@media(max-width:600px) {
+  .userNameInputForm {
+    left: 15vw;
+    width: 70vw;
+
+    div {
+      flex-direction: column;
+
+      input {
+        width: 90%;
+      }
+    }
+
+    button {
+      margin-top: 2vh;
+
+      &:hover::before {
+        width:15px;
+        height:15px;
+      }
+    }
+  }
+
+  .openingButton {
+    left: 15vw;
+    width: 70vw;
+    font-size: 1.1rem;
+  }
+
+  
+  .stopMusicButton {
+    right: 3vw;
+    bottom:6vh;
+    font-size: 0.6rem;
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+
+  .heroBack {
+    bottom: 3vh;
+  }
+}
+
+@media (max-width: 428px) {
+  .userNameInputForm {
+    left: 10vw;
+    width: 80vw;
+    font-size:1rem;
+  }
+
+  .openingButton {
+    left: 10vw;
+    width: 80vw;
+    font-size: 1rem;
+  }
+
+  .heroBack {
+    left:-15vw;
+    bottom: 5vh;
+    height:300px;
+  }
+
+  .heroBackMovingLeft {
+    left: -30vw;
+  }
+
+  @keyframes heroBackMovingLeft {
+    from {left:-15vw;}
+    to {left:-30vw;}
+  }
+}
+
+@media (max-width: 375px) {
+  .userNameInputForm {
+    font-size:0.8rem;
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
+  .openingButton {
+    font-size: 0.8rem;
+  }
+
+  .heroBack {
+    left:-25vw;
+  }
+
+  .heroBackMovingLeft {
+    left: -40vw;
+  }
+
+  @keyframes heroBackMovingLeft {
+    from {left:-25vw;}
+    to {left:-40vw;}
+  }
+}
+
+@media (max-width: 320px) {
+  .heroBack {
+    bottom: 8vh;
+    height:250px;
+  }
+
+  .stopMusicButton {
+    bottom:8vh;
+  }
+}

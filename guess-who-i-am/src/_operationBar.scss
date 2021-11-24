@@ -37,16 +37,62 @@
   }
   //OperationBar END
 
-  @media (max-width:1440px) {
-    .operatingBar {
-      width: 36vw;
-      left:32vw;
-    }
+@media (max-width:1440px) {
+  .operatingBar {
+    width: 36vw;
+    left:32vw;
   }
+}
 
-  @media (max-width: 1024px) {
-    .operatingBar {
-      width: 50vw;
-      bottom:10vh;
+@media (max-width: 1024px) {
+  .operatingBar {
+    width: 50vw;
+    bottom:10vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .operatingBar {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .operatingBar {
+    button{
+      font-size: 0.9rem;
+
+      &:hover::before {
+        width:15px;
+        height:15px;
+      }
     }
   }
+}
+
+@media (max-width: 428px) {
+  .operatingBar {
+    left: 35vw;
+    width: 60vw;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+
+    button{
+      padding: 10px 0;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .operatingBar {
+    button{
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .operatingBar {
+    bottom: 13vh;
+  }
+}

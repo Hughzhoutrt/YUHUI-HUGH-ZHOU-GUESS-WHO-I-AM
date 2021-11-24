@@ -99,3 +99,88 @@
     left: 32vw;
   }
 }
+
+@media (max-width: 820px) {
+  .guessNameInput {
+    left: 20vw;
+    width: 60vw;
+  }
+
+  .pokemonNamePrompt {
+    width: 60vw;
+    bottom: 30vh;
+  }
+}
+
+@media (max-width:600px) {
+  .guessNameInput {
+    left: 15vw;
+    width: 70vw;
+    font-size: 1.1rem;
+
+    div {
+      margin-top: 2vh;
+      flex-direction: column;
+
+      input {
+        width: 90%;
+      }
+    }
+
+    button {
+      &:hover::before {
+        width:15px;
+        height:15px;
+      }
+    }
+  }
+
+  .pokemonNamePrompt {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width:428px) {
+  .guessNameInput {
+    left: 10vw;
+    width: 80vw;
+    font-size: 1rem;
+
+    button {
+      &:hover::before {
+        width:15px;
+        height:15px;
+      }
+    }
+  }
+
+  .pokemonNamePrompt {
+    left: 35vw;
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .guessNameInput {
+    font-size: 0.8rem;
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
+  .pokemonNamePrompt {
+    bottom: 35vh;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .guessNameInput {
+    bottom: 20vh;
+  }
+
+  .pokemonNamePrompt {
+    bottom: 42vh;
+  }
+}

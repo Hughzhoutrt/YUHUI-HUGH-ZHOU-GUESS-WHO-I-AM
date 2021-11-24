@@ -49,3 +49,42 @@
     100% {top : -167.5px}
 }
 //Header END
+
+@media (max-width:768px) {
+    .header {
+        width: 600px;
+        left: calc(50vw - 300px);
+    }
+    
+    .headerSubContainer {
+        img {
+            width: 500px;
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .header {
+        width: 400px;
+        left: calc(50vw - 200px);
+    }
+    
+    .headerSubContainer {
+        img {
+            width: 350px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .header {
+        width: 320px;
+        left: calc(50vw - 160px);
+    }
+    
+    .headerSubContainer {
+        img {
+            width: 300px;
+        }
+    }
+}

@@ -4,6 +4,7 @@
     bottom: 20vh;
     width: 250px;
     height:480px;
+    z-index: 2;
     
     div {
         display:flex;
@@ -52,4 +53,29 @@
         width: 250px;
         height:480px;
     }
+}
+
+@media (max-width: 320px) {
+    .pokemonPackage {
+        left:2vw;
+        bottom:42vh;
+        width: 200px;
+        height:300px;
+        
+        div {
+            p {
+                font-size: 0.6rem;
+            }
+    
+            img {
+                height: 50px;
+            }
+    
+            &:hover {
+                p {
+                    font-size: 0.7rem;
+                }
+            } 
+        }
+    }    
 }

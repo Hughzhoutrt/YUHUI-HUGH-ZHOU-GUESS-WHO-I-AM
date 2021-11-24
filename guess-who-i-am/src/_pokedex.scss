@@ -57,34 +57,122 @@
       }
     }
   }
-  
-  .podexTittle {
-      img {
-      width: 150px;
-    }
-  
+
+.podexTittle {
+    img {
+    width: 150px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 1vh 3vw;
+    color: #4192b3;
+  }
+}
+
+.podexText {
+  padding-bottom: 30px;
+}
+//Pokedex END
+
+@media (max-width:1440px) {
+  .pokedexContainer {
+    width: 36vw;
+    left: 32vw;
+  }
+}
+
+@media (max-width:1024px) {
+.pokedexContainer {
+    width: 50vw;
+    left: 32vw;
+  }
+}
+
+@media (max-width: 820px) {
+.pokedexContainer {
+    width: 60vw;
+    bottom: 30vh;
+
     h2 {
-      font-size: 1.2rem;
-      margin: 1vh 3vw;
-      color: #4192b3;
+      font-size:1rem;
     }
-  }
-  
-  .podexText {
-    padding-bottom: 30px;
-  }
-  //Pokedex END
 
-  @media (max-width:1440px) {
-    .pokedexContainer {
-      width: 36vw;
-      left: 32vw;
+    .pokedexSubContainer {
+      p {
+        font-size:0.8rem;
+        padding: 10px 30px;
+      }
     }
   }
+}
 
-  @media (max-width:1024px) {
-    .pokedexContainer {
-      width: 50vw;
-      left: 32vw;
+@media (max-width: 600px) {
+  .pokedexContainer {
+    h2 {
+      font-size:0.8rem;
+    }
+
+    .pokedexSubContainer {
+      p {
+        font-size:0.6rem;
+        padding: 10px 10px;
+      }
     }
   }
+}
+
+@media (max-width:428px) {
+  .pokedexContainer {
+   left: 35vw;
+
+   .pokedexSubContainer {
+      .pokedexDecoration {
+        top: 5px;
+      }
+    
+      .pokemonBallDecoration {
+        width: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .pokedexContainer {
+    bottom: 35vh;
+
+    .pokedexSubContainer {
+      .pokedexDecoration {
+        position:absolute;
+        width: 30px;
+      }
+      
+      .podexTittle {
+        img {
+          width: 50px;
+        }
+        
+        h2 {
+          font-size: 0.5rem;
+        }
+      }
+
+      p {
+        font-size:0.5rem;
+        padding: 10px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .pokedexContainer {
+    bottom: 42vh;
+    .pokedexSubContainer {
+      .pokedexDecoration {
+        width: 0;
+      }
+    }
+  }
+}

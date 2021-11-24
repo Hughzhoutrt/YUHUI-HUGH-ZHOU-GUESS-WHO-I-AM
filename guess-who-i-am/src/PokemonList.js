@@ -17,7 +17,7 @@ function PokemonList(props) {
     const [fifthtUserPokemon, setFifthUserPokemon] =useState({});
     const [sixthtUserPokemon, setSixthUserPokemon] =useState({});
     const [removePokemonFromList, setRemovePokemonFromList] = useState(false);
-
+    const [userPokemonTeam, setUserPokemonTeam] =useState([]);
     
 
     const updatingCatchedPokemon = (userName, pokemonName, pokemonUrl) => {
@@ -38,10 +38,15 @@ function PokemonList(props) {
         const dbRef = firebase.database().ref();
         dbRef.on('value', (response) => {
             const data = response.val();
+            console.log(data);
             const dataConvertToArray = Object.keys(data);
             if (String(dataConvertToArray).indexOf(userName) !== -1) {
                 setUserPokemonNumber(Object.keys(data[userName]).length);
                 const userPokemons = Object.values(data[userName]);
+                setUserPokemonTeam(userPokemons);
+
+
+                console.log(userPokemons);
                 if (userPokemons[0] !== undefined) {
                     setFirstUserPokemon(userPokemons[0]);}
                 if (userPokemons[1] !== undefined) {
@@ -70,7 +75,17 @@ function PokemonList(props) {
     return (
         <>
             {pokemonListShow ? <section className="pokemonPackage pokemonStyleBorder">
-                {firstUserPokemon !== undefined ?
+                {userPokemonTeam.map((pokemon)=>{
+                    return (
+                        //  Take the div working one by one 
+                        <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, pokemon.name);e.stopPropagation()}}>
+                            <p>{pokemon.name}</p>
+                            <img src={pokemon.img} />
+                        </div>
+                    )
+                })}
+
+                {/* {firstUserPokemon !== undefined ?
                     <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, firstUserPokemon.name);e.stopPropagation()}}>
                         <p>{firstUserPokemon.name}</p>
                         <img src={firstUserPokemon.img} alt={firstUserPokemon.name + ` in your Pokémon package.`}/>
@@ -105,7 +120,7 @@ function PokemonList(props) {
                         <p>{sixthtUserPokemon.name}</p>
                         <img src={sixthtUserPokemon.img} alt={sixthtUserPokemon.name + ` in your Pokémon package.`}/>
                     </div>
-                : <div></div>}
+                : <div></div>} */}
             </section>
             :null}
         </>
