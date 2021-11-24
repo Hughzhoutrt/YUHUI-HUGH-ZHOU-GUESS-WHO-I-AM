@@ -36,3 +36,10 @@
   
   }
   //OperationBar END
+
+  @media (max-width:1440px) {
+    .operatingBar {
+      width: 36vw;
+      left:32vw;
+    }
+  }

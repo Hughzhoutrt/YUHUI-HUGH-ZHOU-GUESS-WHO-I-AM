@@ -30,7 +30,7 @@ function Pokedex(props) {
                 }
 
             })
-    }, [pokemonName, pokemonAppear])
+    }, [pokemonName])
 
     const pokemonNameInPokedex = pokemonName.slice(0, 1).toUpperCase() + pokemonName.slice(1)
 

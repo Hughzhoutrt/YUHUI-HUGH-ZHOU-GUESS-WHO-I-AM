@@ -1,5 +1,6 @@
 import './App.scss';
 import {useState } from 'react';
+import { useEffect } from 'react';
 import GetPokemonData from './GetPokemonData';
 import OperationBar from './OperationBar';
 import Header from './Header';
@@ -72,6 +73,13 @@ const UserNameSubmitButton = () => {
     setUserSignIn(true);
     }
   }
+  useEffect(()=>{
+    if (stopBattleMusicDisplay) {
+      stop();
+    } else if (!stopBattleMusicDisplay) {
+      playMusic();
+    }
+  },[stopBattleMusicDisplay]);
   
   return (
     <main className="App">
@@ -88,7 +96,7 @@ const UserNameSubmitButton = () => {
                 </section>
                 : null}
                 <section>
-      {!pokemonAppear && userSignIn? <button className="openingButton pokemonStyleBorder" onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); playMusic();letPokemonAppear();}}>Ready to meet a wild Pokémon?</button> : null}
+      {!pokemonAppear && userSignIn? <button className="openingButton pokemonStyleBorder" onMouseEnter={playHoverSound} onClick={()=>{letPokemonAppear();playClickSound(); playMusic();}}>Ready to meet a wild Pokémon?</button> : null}
       </section>
       {pokemonAppear ? <GetPokemonData operationBarShow={operationBarShow}
         setOperationBarShow={setOperationBarShow}
@@ -126,7 +134,7 @@ const UserNameSubmitButton = () => {
         : null}
       <img className="heroBack" src={HeroBackImg} alt="Pokémon trainer's back view"/>
       {pokemonAppear ?
-      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}} onToggle={stopBattleMusicDisplay ? stop() : null}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i>Stop Battle Music!</button>
+      <button onMouseEnter={playHoverSound} className={stopMusicDisplay? "stopMusicButton pokemonStyleBorder" : "stopMusicButton pokemonStyleBorder stopButtonHide" } onClick={()=>{playClickSound(); stop(); stopBattleMusic();}}><i className="fas fa-volume-mute" aria-label="Stop battle music"></i>Stop Battle Music!</button>
       : null}
       <Footer />
     </main>

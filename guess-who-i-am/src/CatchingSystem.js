@@ -4,10 +4,6 @@ import PokemonBall from './imgs/pokemonBall.png';
 function CatchingSystem (props) {
     const {catchPokemon} = props;
 
-
-
-
-
     return (
         <section>
             { catchPokemon? 

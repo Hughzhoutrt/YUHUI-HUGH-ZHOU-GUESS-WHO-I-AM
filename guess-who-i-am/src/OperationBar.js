@@ -3,6 +3,7 @@ import useSound from 'use-sound';
 import HoverSound from './audios/buttonSoundHover.mp3';
 import ClickSound from './audios/buttonSoundClick.mp3';
 import CatchingSystem from './CatchingSystem';
+import TossSound from './audios/tossBall.mp3';
 
 function OperationBar (props) {
     const {pokedexShow, setPokedexShow, setPokemonAppear, setOperationBarShow, setHeaderDisplay, setStopMusicDisplay, setStopBattleMusicDisplay, catchPokemon, setCatchPokemon, userPokemonNumber, pokemonListShow, setPokemonListShow} = props;
@@ -24,6 +25,7 @@ function OperationBar (props) {
 
     const [playHoverSound] = useSound(HoverSound);
     const [playClickSound] = useSound(ClickSound);
+    const [playTossSound] = useSound(TossSound);
 
     const CatchingPokemon = () => {
         if (userPokemonNumber >= 6) {
@@ -41,7 +43,7 @@ function OperationBar (props) {
         <>
             <section className="operatingBar pokemonStyleBorder">
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
-                <button onMouseEnter={playHoverSound} onClick={CatchingPokemon}>Catch</button>
+                <button onMouseEnter={playHoverSound} onClick={()=>{CatchingPokemon(); playTossSound();}}>Catch</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenPokemonList();}}>Pokémon</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
             </section>

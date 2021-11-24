@@ -28,37 +28,42 @@
 
 .userNameInputForm {
   position: absolute;
-    bottom: 40vh;
-    left: 37vw;
-    width: 26vw;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.3rem;
-    padding: 30px 20px;
-    z-index: 1;
+  bottom: 40vh;
+  left: 37vw;
+  width: 26vw;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.3rem;
+  padding: 30px 20px;
+  z-index: 1;
+
+  div{
+    margin: 2vh 0 0;
+    display: flex;
+  }
   
-    button {
-      margin: 2vh 0 0 1vw;
-      font-family: 'Press Start 2P', cursive;
-      cursor: pointer;
-      border:none;
-      background-color: white;
-      font-size: 1rem;
+  button {
+    margin-left:10px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    border:none;
+    background-color: white;
+    font-size: 1rem;
 
-      &:hover::before {
-        content: "";
-        background-image: url(./imgs/trianglePointer.png);
-        background-repeat: no-repeat;
-        display: inline-block;
-        background-size: 100%;
-        width:20px;
-        height:20px;
-        margin-right: 5px;
-      }
-
-      &:active {
-        color:#4192b3;
-      }
+    &:hover::before {
+      content: "";
+      background-image: url(./imgs/trianglePointer.png);
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-size: 100%;
+      width:20px;
+      height:20px;
+      margin-right: 5px;
     }
+
+    &:active {
+      color:#4192b3;
+    }
+  }
   
     input {
       font-size: 1rem;
@@ -106,7 +111,6 @@
     margin-right: 15px;
   }
 
-
   &:hover {
     transform: scale(1.2);
   }
@@ -120,3 +124,41 @@
   display:none;
 }
 //App END
+
+@media (max-width:1440px) {
+  .userNameInputForm {
+    bottom: 40vh;
+    left: 32vw;
+    width: 36vw;
+  }
+ 
+  .openingButton {
+    left: 32vw;
+    font-size: 1.3rem;
+    width: 34vw;
+  }
+
+  .stopMusicButton {
+    font-size: 0.8rem;
+
+    i {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media (max-width:1280px) {
+  .userNameInputForm {
+    bottom: 40vh;
+    left: 30vw;
+    width: 40vw;
+  }
+
+  .openingButton {
+    font-size: 1.2rem;
+  }
+}

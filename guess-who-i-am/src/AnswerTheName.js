@@ -49,7 +49,7 @@ function AnswerTheName(props) {
                     : null
                 }
             </section>
-            <section onClick={resetNamePrompt}>
+            <section onClick={()=>{resetNamePrompt(); playClickSound();}} onMouseEnter={playHoverSound}>
                 {correctName === userInputText.toLowerCase() && namePrompt ? 
                 <div className="pokemonNamePrompt pokemonStyleBorder">
                     <p>You got it! <span>{upperCasePokemonName}</span>! I choose you!</p>
