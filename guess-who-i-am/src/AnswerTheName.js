@@ -5,7 +5,6 @@ import HoverSound from './audios/buttonSoundHover.mp3';
 import ClickSound from './audios/buttonSoundClick.mp3';
 
 function AnswerTheName(props) {
-    console.log(props.correctName);
     const { correctName, pokemonFog, setPokemonFog, poperationBarShow, setOperationBarShow} = props;
     const [userInputText, setUserInputText] = useState('');
     const [submittedAlready, setSubmittedAlready] = useState(false);

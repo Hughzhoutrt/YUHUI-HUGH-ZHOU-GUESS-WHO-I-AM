@@ -26,7 +26,6 @@ function GetPokemonData(props) {
             responseType: 'json'
         })
             .then(response => {
-                console.log(response.data);
                 setRandomPokemon(response.data.sprites.front_default);
                 setRandomPokemonName(response.data.name);
                 setRandomPokemonAlt(`The picture of ${response.data.name}`)

@@ -19,7 +19,7 @@
         cursor: pointer;
 
         &:disabled {
-          text-decoration: line-through double #f87058;
+          text-decoration: line-through double;
         }
 
         &:hover::before {

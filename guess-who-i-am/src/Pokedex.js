@@ -26,9 +26,7 @@ function Pokedex(props) {
                     setPokemonGenera(response.data.genera.find(findingEnglishVersion).genus);
                     (response.data.habitat === null) ? (setPokemonHabitat('unknown')) : (setPokemonHabitat(response.data.habitat.name));
                     setPokemonText(response.data.flavor_text_entries.find(findingEnglishVersion).flavor_text);
-
                 }
-
             })
     }, [pokemonName])
 

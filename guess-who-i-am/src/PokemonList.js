@@ -32,7 +32,6 @@ function PokemonList(props) {
         const dbRef = firebase.database().ref();
         dbRef.on('value', (response) => {
             const data = response.val();
-            console.log(data);
             const dataConvertToArray = Object.keys(data);
             if (String(dataConvertToArray).indexOf(userName) !== -1) {
                 setUserPokemonNumber(Object.keys(data[userName]).length);
