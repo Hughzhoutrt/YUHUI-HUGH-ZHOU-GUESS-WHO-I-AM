@@ -1,6 +1,6 @@
 # Yuhui-Hugh-Zhou-Pokemon-Guess-Em-All
   
-Please click this link and jump to my break timer application:[Pokemon-Guess-Em-All](https://app.netlify.com/sites/pokemon-guess-em-all/settings/general)   
+Please click this link and jump to my break timer application:[Pokemon-Guess-Em-All](https://pokemon-guess-em-all.netlify.app/)   
     
 This is my first React project and project 3 of the immersive web development boot camp at Juno College.     
     
