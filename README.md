@@ -39,7 +39,7 @@ The responsive design of this project is down to 320px.
 ## Contact Me    
 ![image](https://user-images.githubusercontent.com/84819219/143372528-31a6b3a6-6411-4648-8835-3a009733e1c4.png)    
 If you have any suggestions and feedback, or you are interested in my project and me, please feel free to contact me by following methods:     
-[![Twitter][1.2]][1]                    [![LinkedIn][2.2]][2]                    email:[hughzhoutrt@gmail.com]         
+Twitter:[![Twitter][1.2]][1], LinkedIn:[![LinkedIn][2.2]][2], and email:[hughzhoutrt@gmail.com]         
 <!-- Icons -->  
 [1.2]: http://i.imgur.com/wWzX9uB.png (twitter icon without padding)  
 [2.2]: https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/linkedin-3-16.png (LinkedIn icon without padding)  
