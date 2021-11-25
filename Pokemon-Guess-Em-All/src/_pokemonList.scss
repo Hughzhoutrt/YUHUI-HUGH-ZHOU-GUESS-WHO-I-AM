@@ -56,10 +56,10 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 414px) {
     .pokemonPackage {
         left:2vw;
-        bottom:42vh;
+        bottom:38vh;
         width: 200px;
         height:300px;
         
@@ -79,4 +79,10 @@
             } 
         }
     }    
+}
+
+@media (max-width: 320px) {
+    .pokemonPackage {
+        bottom:42vh;
+    }
 }

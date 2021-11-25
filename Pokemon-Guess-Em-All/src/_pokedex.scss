@@ -138,6 +138,12 @@
   }
 }
 
+@media (max-width: 414px) {
+  .pokedexContainer {
+    bottom: 38vh;
+  }
+}
+
 @media (max-width: 375px) {
   .pokedexContainer {
     bottom: 35vh;

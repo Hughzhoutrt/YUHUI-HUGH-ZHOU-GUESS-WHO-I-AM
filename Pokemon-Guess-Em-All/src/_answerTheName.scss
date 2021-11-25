@@ -160,6 +160,12 @@
   }
 }
 
+@media (max-width: 414px) {
+  .pokemonNamePrompt {
+    bottom: 38vh;
+  }
+}
+
 @media (max-width: 375px) {
   .guessNameInput {
     font-size: 0.8rem;

@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# images
+/src/imgs/backgroundForest.png
+/src/imgs/backgroundRock.png
+/src/imgs/backgroundWater.png
