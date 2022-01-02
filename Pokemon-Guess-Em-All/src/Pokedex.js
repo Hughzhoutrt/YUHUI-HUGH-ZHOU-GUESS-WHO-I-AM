@@ -18,7 +18,7 @@ function Pokedex(props) {
             responseType: 'json'
         })
             .then(response => {
-                if (pokemonAppear) {
+                if (pokemonAppear && pokemonName) {
                     const findingEnglishVersion = texts => {
                         return texts.language.name === "en";
                     }
@@ -28,7 +28,7 @@ function Pokedex(props) {
                     setPokemonText(response.data.flavor_text_entries.find(findingEnglishVersion).flavor_text);
                 }
             })
-    }, [pokemonName])
+    }, [pokemonName, pokemonAppear])
 
     const pokemonNameInPokedex = pokemonName.slice(0, 1).toUpperCase() + pokemonName.slice(1)
 

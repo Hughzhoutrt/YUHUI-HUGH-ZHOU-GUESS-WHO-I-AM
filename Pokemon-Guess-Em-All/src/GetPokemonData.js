@@ -46,9 +46,21 @@ function GetPokemonData(props) {
     const [playHoverPokemonSound] = useSound(HoverPokemonSound);
     const [playClickPokemonSound] = useSound(ClickPokemonSound);
 
+    const playHoverSound = () =>{
+        if (!catchPokemon) {
+            playHoverPokemonSound();
+        }
+    };
+
+    const playClickSound = () =>{
+        if (!catchPokemon) {
+            playClickPokemonSound();
+        }
+    }
+
     return (
         <>
-            <section onMouseEnter={playHoverPokemonSound} onClick={()=> {playClickPokemonSound();reAnimation();}} className="wildPokemonImgContainer">
+            <section onMouseEnter={playHoverSound} onClick={()=> {playClickSound();reAnimation();}} className="wildPokemonImgContainer">
                 <img className={catchPokemon ? "catchPokemon wildPokemonImg"
                                 :pokemonFog ? "showPokemon wildPokemonImg" 
                                 :pokemonPlay > 1 ? "playPokemon wildPokemonImg"
