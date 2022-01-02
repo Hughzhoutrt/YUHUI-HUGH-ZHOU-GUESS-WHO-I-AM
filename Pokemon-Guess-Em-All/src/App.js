@@ -80,6 +80,7 @@ const UserNameSubmitButton = () => {
     } else if (!stopBattleMusicDisplay) {
       playMusic();
     }
+  // eslint-disable-next-line 
   },[stopBattleMusicDisplay]);
   
   return (
