@@ -34,8 +34,11 @@ function OperationBar (props) {
     const CatchingPokemon = () => {
         if (userPokemonNumber >= 6) {
             alert(`You already have 6 Pokémons and cannot catch a new one!`);
+            setCatchPokemon(false);
         } else {
-        setCatchPokemon(true);
+            setCatchPokemon(true);
+            setAlreadyCatched(true);
+            playTossSound();
         }
     }
 
@@ -43,15 +46,11 @@ function OperationBar (props) {
         setPokemonListShow(!pokemonListShow);
     }
 
-    const AlreadyCatchedIt = () => {
-        setAlreadyCatched(true);
-    }
-
     return (
         <>
             <section className="operatingBar pokemonStyleBorder">
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenningPokedexInterface();}}>Pokédex</button>
-                <button onMouseEnter={playHoverSound} onClick={()=>{CatchingPokemon(); playTossSound(); AlreadyCatchedIt();}} disabled={alreadyCatched? true : false}>Catch</button>
+                <button onMouseEnter={playHoverSound} onClick={()=>{CatchingPokemon();}} disabled={alreadyCatched? true : false}>Catch</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); OpenPokemonList();}}>Pokémon</button>
                 <button onMouseEnter={playHoverSound} onClick={()=>{playClickSound(); resetTheWholeInterface();}}>Run</button>
             </section>

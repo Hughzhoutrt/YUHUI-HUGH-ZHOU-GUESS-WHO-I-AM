@@ -22,7 +22,7 @@ function App() {
   const [operationBarShow, setOperationBarShow] = useState(false); //Get state from "./GetPokemonData" and "./OperationBar" to "App", once users submitted the input then operation bar shown
   const [pokedexShow, setPokedexShow] = useState(false); //Get state from "./OperationBar" to "./Pokedex", for opening or closing Pokedex inferface
 
-  const [headerDisplay, setHeaderDisplay] = useState(true);//Get state from "./OperationBar" and "./App" to "./App", for showing or hiding header
+  const [headerDisplay, setHeaderDisplay] = useState(true); //Get state from "./OperationBar" and "./App" to "./App", for showing or hiding header
 
   const [stopMusicDisplay, setStopMusicDisplay] = useState(true); //Get state from "./OperationBar" and "./App" to "./App", for stopping battle music
 
@@ -31,7 +31,7 @@ function App() {
   const [catchPokemon, setCatchPokemon] = useState(false); //Get state from "./OperationBar" to "./GetPokemonData =>./PokemonList", for catching wild pokemon
 
   const [userSignIn, setUserSignIn] = useState(false); // Used in "./App", for making sure user sign-in or not
-
+  
   const [userName, setUserName] = useState(''); //Username container
 
   const [userPokemonNumber, setUserPokemonNumber] = useState(0);//Get state from "./GetPokemonData =>./PokemonList" to "./OperationBar" and "./GetPokemonData =>./PokemonList",
@@ -85,6 +85,7 @@ const UserNameSubmitButton = () => {
   return (
     <main className="App">
       <Header headerDisplay={headerDisplay}/>
+     
       {userSignIn === false?
                 <section className="userNameInputForm pokemonStyleBorder">
                     <form onSubmit={UserNameSubmit}>

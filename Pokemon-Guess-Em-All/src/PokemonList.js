@@ -55,7 +55,7 @@ function PokemonList(props) {
             {pokemonListShow ? <section className="pokemonPackage pokemonStyleBorder">
                 {userPokemonTeam.map((pokemon)=>{
                     return (
-                        <div onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, pokemon.name);e.stopPropagation()}}>
+                        <div key={pokemon.name} onMouseEnter={playHoverSound} onClickCapture={(e)=>{removeCatchedPokemon(userName, pokemon.name);e.stopPropagation()}}>
                             <p>{pokemon.name}</p>
                             <img src={pokemon.img} alt={pokemon.name + ` in the Pokédex`}/>
                         </div>
