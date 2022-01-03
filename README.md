@@ -4,7 +4,9 @@ Please click this link and jump to my break timer application:[Pokemon-Guess-Em-
     
 This is my first React project and project 3 of the immersive web development boot camp at Juno College.     
     
-React, JavaScript, HTML5, CSS3, SASS, API integration and Firebase    
+React, JavaScript, HTML5, CSS3, SASS, API integration and Firebase  
+
+[![Loom record for pokemon-guess-em-all](https://cdn.loom.com/sessions/thumbnails/03d938d5edee450db6a1d930365fa605-with-play.gif)](https://www.loom.com/share/03d938d5edee450db6a1d930365fa605 "Loom record for pokemon-guess-em-all")    
     
 
 ## About Application    
