@@ -5,10 +5,11 @@ Please click this link and jump to my break timer application:[Pokemon-Guess-Em-
 This is my first React project and project 3 of the immersive web development boot camp at Juno College.     
     
 React, JavaScript, HTML5, CSS3, SASS, API integration and Firebase  
-
+  
+## Application demonstration on Loom 
 [![Loom record for pokemon-guess-em-all](https://cdn.loom.com/sessions/thumbnails/03d938d5edee450db6a1d930365fa605-with-play.gif)](https://www.loom.com/share/03d938d5edee450db6a1d930365fa605 "Loom record for pokemon-guess-em-all")    
+Please click above if you want to watch the whole demonstration  
     
-
 ## About Application    
 ![image](https://user-images.githubusercontent.com/84819219/143367173-7803933f-bca5-4983-9676-5a11595ac0cf.png)      
 In the beginning, users can enter their unique user names to verify identities then get their Pokémon teams. If they don't have existing user names yet, this step will assist them in creating ones.    
